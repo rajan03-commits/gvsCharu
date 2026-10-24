@@ -1,13 +1,5 @@
 import Link from "next/link";
-
-const links = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Adoption Procedure", href: "/adoption" },
-  { label: "Photo Gallery", href: "/gallery" },
-  { label: "Success Stories", href: "/stories" },
-  { label: "Contact Us", href: "/contact" },
-];
+import { links } from "@/app/lib/link";
 
 export default function Footer() {
   return (
