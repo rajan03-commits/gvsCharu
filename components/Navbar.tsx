@@ -25,13 +25,13 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label="Toggle menu"
-          className="rounded-md border border-border px-3 py-2 text-foreground md:hidden"
+          className="rounded-md border border-border px-3 py-2 text-foreground xl:hidden"
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
 
         <div
-          className={`${isOpen ? "flex" : "hidden"} w-full flex-col gap-1 md:flex md:w-auto md:flex-row md:items-center md:gap-x-6`}
+          className={`${isOpen ? "flex" : "hidden"} w-full flex-col gap-1 xl:flex xl:w-auto xl:flex-row xl:items-center xl:gap-x-2`}
         >
           {links.map((link) => {
             const isActive = pathname === link.href;
@@ -40,7 +40,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`rounded-md px-3 py-2 transition-colors ${
+                className={`whitespace-nowrap rounded-md px-3 py-2 transition-colors ${
                   isActive
                     ? "bg-surface font-semibold text-foreground"
                     : "text-foreground hover:text-primary"
@@ -53,7 +53,7 @@ export default function Navbar() {
           <Link
             href="/donate"
             onClick={() => setIsOpen(false)}
-            className="rounded-md bg-primary px-5 py-3 text-center font-semibold text-white transition-colors hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="whitespace-nowrap rounded-md bg-primary px-5 py-3 text-center font-semibold text-white transition-colors hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             Donate Now
           </Link>

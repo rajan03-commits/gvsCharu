@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { links } from "@/app/lib/link";
+import ContactInfo from "@/components/ContactInfo";
 
 export default function Footer() {
   return (
@@ -50,13 +51,9 @@ export default function Footer() {
               Contact Us
             </h2>
 
-            <p className="mt-4 text-sm leading-6 text-foreground">
-              [Address]
-              <br />
-              [Phone number]
-              <br />
-              [Email address]
-            </p>
+            <div className="mt-4">
+              <ContactInfo showMap={false} />
+            </div>
 
             <Link
               href="/contact"
