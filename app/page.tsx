@@ -41,7 +41,7 @@ export default function Home() {
           </h2>
           <p className="mt-4 text-lg text-foreground">
             Since 1998, Gramin Vikas Samiti Charu has worked for children in
-            need of care and protection, and for women&apos;s welfare, across
+            need of care, protection and welfare, across
             Devipatan Mandal, with its headquarters in Gonda, Uttar Pradesh.
           </p>
           <Link
