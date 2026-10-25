@@ -20,7 +20,7 @@ export default function PageHeader({
         <span aria-hidden="true"> / </span>
         <span aria-current="page">{crumb}</span>
       </nav>
-      <h1 className="mt-4 text-3xl font-bold text-foreground md:text-4xl">
+      <h1 className="mt-4 text-balance text-3xl font-bold text-foreground md:text-4xl">
         {title}
       </h1>
     </Section>
