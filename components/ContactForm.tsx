@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { contact } from "@/app/lib/contact";
 
 type FormValues = {
@@ -49,12 +50,21 @@ function Field({
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaError, setCaptchaError] = useState(false);
+  const captchaRef = useRef<HCaptcha>(null);
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm<FormValues>();
+
+  // A captcha result works for one submission, so clear it after every attempt.
+  function resetCaptcha() {
+    setCaptchaToken("");
+    captchaRef.current?.resetCaptcha();
+  }
 
   async function onSubmit(data: FormValues) {
     const { website, ...fields } = data;
@@ -66,7 +76,14 @@ export default function ContactForm() {
       return;
     }
 
-    if (!contact.formEndpoint) {
+    // The visitor must complete the captcha first.
+    if (!captchaToken) {
+      setCaptchaError(true);
+      return;
+    }
+
+    // No service connected yet: show the honest fallback message.
+    if (!contact.formEndpoint || !contact.formAccessKey) {
       setStatus("error");
       return;
     }
@@ -79,13 +96,21 @@ export default function ContactForm() {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(fields),
+        body: JSON.stringify({
+          ...fields,
+          access_key: contact.formAccessKey,
+          subject: `Website enquiry: ${fields.topic}`,
+          "h-captcha-response": captchaToken,
+        }),
       });
-      if (!res.ok) throw new Error("Request failed");
+      const result = await res.json();
+      if (!result.success) throw new Error(result.message);
       setStatus("success");
       reset();
     } catch {
       setStatus("error");
+    } finally {
+      resetCaptcha();
     }
   }
 
@@ -176,6 +201,25 @@ export default function ContactForm() {
           autoComplete="off"
           {...register("website")}
         />
+      </div>
+
+      {/* Captcha */}
+      <div>
+        <HCaptcha
+          ref={captchaRef}
+          sitekey={contact.captchaSiteKey}
+          reCaptchaCompat={false}
+          onVerify={(token) => {
+            setCaptchaToken(token);
+            setCaptchaError(false);
+          }}
+          onExpire={() => setCaptchaToken("")}
+        />
+        {captchaError && (
+          <p role="alert" className="mt-2 text-sm text-red-700">
+            Please complete the security check above.
+          </p>
+        )}
       </div>
 
       <button
