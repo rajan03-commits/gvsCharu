@@ -1,7 +1,10 @@
 import Link from "next/link";
 import ButtonLink from "@/components/ButtonLink";
+import DonateBanner from "@/components/DonateBanner";
+import MissionVision from "@/components/MissionVision";
 import Section from "@/components/Section";
-import { impact, steps } from "@/app/lib/home";
+import { impact } from "@/app/lib/home";
+import { adoptionSteps } from "@/app/lib/adoption";
 
 export default function Home() {
   return (
@@ -41,7 +44,7 @@ export default function Home() {
           </h2>
           <p className="mt-4 text-lg text-foreground">
             Since 1998, Gramin Vikas Samiti Charu has worked for children in
-            need of care, protection and welfare, across
+            need of care and protection, and for women&apos;s welfare, across
             Devipatan Mandal, with its headquarters in Gonda, Uttar Pradesh.
           </p>
           <Link
@@ -53,19 +56,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Mission and vision */}
-      <Section>
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-lg border border-border p-8">
-            <h2 className="text-2xl font-bold text-foreground">Our Mission</h2>
-            <p className="mt-4 text-foreground">[Mission statement from the NGO]</p>
-          </div>
-          <div className="rounded-lg border border-border p-8">
-            <h2 className="text-2xl font-bold text-foreground">Our Vision</h2>
-            <p className="mt-4 text-foreground">[Vision statement from the NGO]</p>
-          </div>
-        </div>
-      </Section>
+      <MissionVision />
 
       {/* Impact */}
       <Section tone="surface">
@@ -90,22 +81,21 @@ export default function Home() {
         <h2 className="text-2xl font-bold text-foreground md:text-3xl">
           How Adoption Works
         </h2>
-        <ol className="mt-8 grid gap-6 md:grid-cols-3">
-          {steps.map((step, index) => (
+        <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {adoptionSteps.map((step, index) => (
             <li
               key={step.title}
-              className="rounded-lg border border-border p-6"
+              className="flex items-center gap-4 rounded-lg border border-border p-5"
             >
               <span
                 aria-hidden="true"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary font-bold text-white"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary font-bold text-white"
               >
                 {index + 1}
               </span>
-              <h3 className="mt-4 text-lg font-semibold text-foreground">
+              <span className="font-semibold text-foreground">
                 {step.title}
-              </h3>
-              <p className="mt-2 text-foreground">{step.text}</p>
+              </span>
             </li>
           ))}
         </ol>
@@ -135,23 +125,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Donate banner */}
-      <Section tone="primary">
-        <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h2 className="text-2xl font-bold text-white md:text-3xl">
-              Help a child find a loving home
-            </h2>
-            <p className="mt-2 max-w-xl text-white">
-              Every contribution supports the care and protection of children in
-              need.
-            </p>
-          </div>
-          <ButtonLink href="/donate" variant="light">
-            Donate Now
-          </ButtonLink>
-        </div>
-      </Section>
+      <DonateBanner />
     </>
   );
 }
