@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "GVS Charu Gonda | Child Care and Adoption",
-    template: "%s | GVS Charu Gonda",
+    default: "Gramin Vikas Samiti Charu | Child Care and Adoption",
+    template: "%s | Gramin Vikas Samiti Charu",
   },
   description:
-    "GVS Charu Gonda is a child adoption organisation. Learn about our work and the adoption procedure, and see how you can support children with a donation.",
+    "Gramin Vikas Samiti Charu is a child adoption organisation. Learn about our work and the adoption procedure, and see how you can support children with a donation.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

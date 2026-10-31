@@ -16,8 +16,11 @@ export default function Navbar() {
         aria-label="Main"
         className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4"
       >
-        <Link href="/" className="text-lg font-bold text-foreground">
-          GVS Charu Gonda
+        <Link
+          href="/"
+          className="max-w-40 text-lg font-bold leading-tight text-foreground"
+        >
+          Gramin Vikas Samiti Charu
         </Link>
 
         <button

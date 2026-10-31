@@ -2,9 +2,12 @@ import Link from "next/link";
 import ButtonLink from "@/components/ButtonLink";
 import DonateBanner from "@/components/DonateBanner";
 import MissionVision from "@/components/MissionVision";
+import PhotoSlot from "@/components/PhotoSlot";
 import Section from "@/components/Section";
 import { impact } from "@/app/lib/home";
+import { heroImage } from "@/app/lib/homeVisuals";
 import { adoptionSteps } from "@/app/lib/adoption";
+import { aboutStory } from "@/app/lib/about";
 
 export default function Home() {
   return (
@@ -17,8 +20,9 @@ export default function Home() {
               Child Adoption in Gonda, with Care and Trust
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-foreground">
-              GVS Charu Gonda guides families through the adoption procedure, so
-              that every child can grow up in a safe and loving home.
+              Gramin Vikas Samiti Charu guides families through the adoption
+              procedure, so that every child can grow up in a safe and loving
+              home.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <ButtonLink href="/adoption">Adoption Procedure</ButtonLink>
@@ -27,12 +31,13 @@ export default function Home() {
               </ButtonLink>
             </div>
           </div>
-          <div
-            aria-hidden="true"
-            className="flex aspect-[4/3] items-center justify-center rounded-lg bg-surface text-foreground"
-          >
-            [Photo]
-          </div>
+          <PhotoSlot
+            src={heroImage.src}
+            alt={heroImage.alt}
+            position={heroImage.position}
+            placeholder="[Photo]"
+            preload
+          />
         </div>
       </Section>
 
@@ -42,11 +47,7 @@ export default function Home() {
           <h2 className="text-2xl font-bold text-foreground md:text-3xl">
             About Gramin Vikas Samiti Charu
           </h2>
-          <p className="mt-4 text-lg text-foreground">
-            Since 1998, Gramin Vikas Samiti Charu has worked for children in
-            need of care and protection, and for women&apos;s welfare, across
-            Devipatan Mandal, with its headquarters in Gonda, Uttar Pradesh.
-          </p>
+          <p className="mt-4 text-lg text-foreground">{aboutStory[0]}</p>
           <Link
             href="/about"
             className="mt-6 inline-block font-semibold text-primary underline underline-offset-4 hover:text-primary-hover"
@@ -81,15 +82,15 @@ export default function Home() {
         <h2 className="text-2xl font-bold text-foreground md:text-3xl">
           How Adoption Works
         </h2>
-        <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {adoptionSteps.map((step, index) => (
             <li
               key={step.title}
-              className="flex items-center gap-4 rounded-lg border border-border p-5"
+              className="flex flex-col gap-3 rounded-lg border border-border p-5"
             >
               <span
                 aria-hidden="true"
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary font-bold text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary font-bold text-white"
               >
                 {index + 1}
               </span>

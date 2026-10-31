@@ -8,7 +8,7 @@ import { donate, fundUses } from "@/app/lib/donate";
 export default function DonatePage() {
   return (
     <>
-      <PageHeader title="Donate to GVS Charu Gonda" crumb="Donate Now" />
+      <PageHeader title="Donate to Gramin Vikas Samiti Charu" crumb="Donate Now" />
 
       {/* Ways to give */}
       <Section>
@@ -33,7 +33,7 @@ export default function DonatePage() {
               {donate.qrImage ? (
                 <Image
                   src={donate.qrImage}
-                  alt="UPI QR code for donations to GVS Charu Gonda"
+                  alt="UPI QR code for donations to Gramin Vikas Samiti Charu"
                   width={224}
                   height={224}
                   className="size-56 rounded-md border border-border"

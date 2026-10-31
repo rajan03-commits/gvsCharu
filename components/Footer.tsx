@@ -10,7 +10,7 @@ export default function Footer() {
           {/* NGO information */}
           <div>
             <Link href="/" className="text-xl font-bold text-foreground">
-              GVS Charu Gonda
+              Gramin Vikas Samiti Charu
             </Link>
 
             <p className="mt-4 block  max-w-sm text-sm leading-6 text-foreground">
@@ -67,7 +67,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-10 border-t border-border pt-6">
           <p className="text-center text-sm text-foreground">
-            © 2026 GVS Charu Gonda. All rights reserved.
+            © 2026 Gramin Vikas Samiti Charu. All rights reserved.
           </p>
         </div>
       </div>
