@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   BadgeCheck,
   Check,
@@ -11,12 +12,12 @@ import {
 import ButtonLink from "@/components/ButtonLink";
 import ChecklistCard from "@/components/ChecklistCard";
 import CommitmentArt from "@/components/CommitmentArt";
+import FamilyHomeArt from "@/components/FamilyHomeArt";
 import PageHeader from "@/components/PageHeader";
 import PhotoSlot from "@/components/PhotoSlot";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import { adoptionImage } from "@/app/lib/adoptionVisuals";
-import FamilyHomeArt from "@/components/FamilyHomeArt";
 import {
   adoptionIntro,
   adoptionSteps,
@@ -31,6 +32,12 @@ import {
   faqs,
   officialLinks,
 } from "@/app/lib/adoption";
+
+export const metadata: Metadata = {
+  title: "Adoption Procedure",
+  description:
+    "Learn the step-by-step adoption procedure in Gonda, the documents needed, and how to begin your journey through the official CARINGS and CARA portals.",
+};
 
 const stepIcons = [
   IdCard,

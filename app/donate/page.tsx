@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import CopyRow from "@/components/CopyRow";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import { contact } from "@/app/lib/contact";
 import { donate, fundUses } from "@/app/lib/donate";
+
+export const metadata: Metadata = {
+  title: "Donate Now",
+  description:
+    "Support the work of Gramin Vikas Samiti Charu with a donation by bank transfer or UPI. Find our bank details and UPI QR code on this page.",
+};
 
 export default function DonatePage() {
   return (

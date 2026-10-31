@@ -1,11 +1,15 @@
-
+import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import ContactInfo from "@/components/ContactInfo";
+import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import { contact } from "@/app/lib/contact";
-import PageHeader from "@/components/PageHeader";
 
-
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Contact Gramin Vikas Samiti Charu in Gonda, Uttar Pradesh. Send an enquiry about adoption or support, and ask about visiting by appointment.",
+};
 export default function ContactPage() {
   return (
     <>

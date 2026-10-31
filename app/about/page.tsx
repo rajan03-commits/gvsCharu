@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import DonateBanner from "@/components/DonateBanner";
 import MissionVision from "@/components/MissionVision";
@@ -28,6 +29,12 @@ import {
   fallbackIcon,
   valueIcons,
 } from "@/app/lib/aboutVisuals";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about Gramin Vikas Samiti Charu, serving Gonda district in Uttar Pradesh since 1998: our story, mission, vision, approach and values.",
+};
 
 export default function AboutPage() {
   return (
