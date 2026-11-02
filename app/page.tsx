@@ -1,61 +1,71 @@
 import Link from "next/link";
 import ButtonLink from "@/components/ButtonLink";
 import DonateBanner from "@/components/DonateBanner";
+import HeroSlider from "@/components/HeroSlider";
 import MissionVision from "@/components/MissionVision";
 import PhotoSlot from "@/components/PhotoSlot";
+import PromiseBanner from "@/components/PromiseBanner";
+import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import { impact } from "@/app/lib/home";
-import { heroImage } from "@/app/lib/homeVisuals";
+import { heroSlides } from "@/app/lib/homeSlides";
+import { homeImages } from "@/app/lib/homeVisuals";
+import { aboutImages } from "@/app/lib/aboutVisuals";
 import { adoptionSteps } from "@/app/lib/adoption";
-import { aboutStory } from "@/app/lib/about";
+import { aboutStory, ourPromise } from "@/app/lib/about";
+import { imageDisclaimer } from "@/app/lib/site";
 
 export default function Home() {
+  const aboutPhoto = homeImages.about;
+
   return (
     <>
-      {/* Hero */}
+      {/* Hero: two slides, text on the left and a photo on the right */}
       <Section>
-        <div className="grid items-center gap-10 lg:grid-cols-2">
-          <div>
-            <h1 className="text-balance text-3xl font-bold leading-tight text-foreground md:text-5xl">
-              Child Adoption in Gonda, with Care and Trust
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg text-foreground">
-              Gramin Vikas Samiti Charu guides families through the adoption
-              procedure, so that every child can grow up in a safe and loving
-              home.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <ButtonLink href="/adoption">Adoption Procedure</ButtonLink>
-              <ButtonLink href="/contact" variant="outline">
-                Contact Us
-              </ButtonLink>
-            </div>
+        <HeroSlider slides={heroSlides} note={imageDisclaimer} />
+      </Section>
+
+      {/* Short about: text with a photo beside it once the photo exists */}
+      <Section tone="surface">
+        <div
+          className={
+            aboutPhoto.src ? "grid items-center gap-10 lg:grid-cols-2" : ""
+          }
+        >
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-bold text-foreground md:text-3xl">
+              About Gramin Vikas Samiti Charu
+            </h2>
+            <p className="mt-4 text-lg text-foreground">{aboutStory[0]}</p>
+            <Link
+              href="/about"
+              className="mt-6 inline-block font-semibold text-primary underline underline-offset-4 hover:text-primary-hover"
+            >
+              Learn more about us
+            </Link>
           </div>
-          <PhotoSlot
-            src={heroImage.src}
-            alt={heroImage.alt}
-            position={heroImage.position}
-            placeholder="[Photo]"
-            preload
-          />
+          {aboutPhoto.src && (
+            <Reveal>
+              <figure>
+                <PhotoSlot
+                  src={aboutPhoto.src}
+                  alt={aboutPhoto.alt}
+                  position={aboutPhoto.position}
+                  placeholder="[Photo]"
+                  className="aspect-[4/3]"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+                <figcaption className="mt-2 text-sm text-foreground">
+                  {imageDisclaimer}
+                </figcaption>
+              </figure>
+            </Reveal>
+          )}
         </div>
       </Section>
 
-      {/* Short about */}
-      <Section tone="surface">
-        <div className="max-w-3xl">
-          <h2 className="text-2xl font-bold text-foreground md:text-3xl">
-            About Gramin Vikas Samiti Charu
-          </h2>
-          <p className="mt-4 text-lg text-foreground">{aboutStory[0]}</p>
-          <Link
-            href="/about"
-            className="mt-6 inline-block font-semibold text-primary underline underline-offset-4 hover:text-primary-hover"
-          >
-            Learn more about us
-          </Link>
-        </div>
-      </Section>
+      {/* Our promise: green band, photo behind it from the About page */}
+      <PromiseBanner text={ourPromise} image={aboutImages.promise} />
 
       <MissionVision />
 

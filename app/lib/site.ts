@@ -7,3 +7,6 @@ export const siteUrl = "https://gvscharu.example";
 // Keep false until launch: the NGO has approved all text, and the
 // placeholders (bank details, QR, certificates) are filled in.
 export const allowIndexing = false;
+
+export const imageDisclaimer =
+  "Pictures on this website are for representation only and do not show the children in our care.";

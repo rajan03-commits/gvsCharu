@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { links } from "@/app/lib/link";
 import ContactInfo from "@/components/ContactInfo";
+import { imageDisclaimer } from "@/app/lib/site";
 
 export default function Footer() {
   return (
@@ -69,6 +70,7 @@ export default function Footer() {
           <p className="text-center text-sm text-foreground">
             © 2026 Gramin Vikas Samiti Charu. All rights reserved.
           </p>
+          <p className="mt-2 text-center text-sm text-foreground">{imageDisclaimer}</p>
         </div>
       </div>
     </footer>
