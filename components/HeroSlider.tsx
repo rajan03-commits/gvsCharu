@@ -20,12 +20,28 @@ const splash = { clipPath: "url(#hero-splash)" };
 const arrowClass =
   "absolute top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-background text-primary shadow-lg ring-1 ring-border transition-colors hover:bg-primary hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
 
+// Screen-reader labels. {n} and {total} are filled in below.
+// Plain strings (not functions), so a server page can pass Hindi ones in.
+const defaultLabels = {
+  region: "Featured messages",
+  previous: "Previous slide",
+  next: "Next slide",
+  goTo: "Go to slide {n}",
+  slideOf: "{n} of {total}",
+};
+
+function fill(template: string, n: number, total?: number) {
+  return template.replace("{n}", String(n)).replace("{total}", String(total));
+}
+
 export default function HeroSlider({
   slides,
   note,
+  labels = defaultLabels,
 }: {
   slides: HeroSlide[];
   note: string;
+  labels?: typeof defaultLabels;
 }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -46,7 +62,7 @@ export default function HeroSlider({
     <div
       role="region"
       aria-roledescription="carousel"
-      aria-label="Featured messages"
+      aria-label={labels.region}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -74,7 +90,7 @@ export default function HeroSlider({
             key={slide.title}
             role="group"
             aria-roledescription="slide"
-            aria-label={`${i + 1} of ${count}`}
+            aria-label={fill(labels.slideOf, i + 1, count)}
             aria-hidden={i !== index}
             className={
               i === index
@@ -129,7 +145,7 @@ export default function HeroSlider({
                 <>
                   <button
                     type="button"
-                    aria-label="Previous slide"
+                    aria-label={labels.previous}
                     onClick={() => go(index - 1)}
                     className={`${arrowClass} left-0`}
                   >
@@ -137,7 +153,7 @@ export default function HeroSlider({
                   </button>
                   <button
                     type="button"
-                    aria-label="Next slide"
+                    aria-label={labels.next}
                     onClick={() => go(index + 1)}
                     className={`${arrowClass} right-0`}
                   >
@@ -156,7 +172,7 @@ export default function HeroSlider({
             <button
               key={slide.title}
               type="button"
-              aria-label={`Go to slide ${i + 1}`}
+              aria-label={fill(labels.goTo, i + 1)}
               aria-current={i === index}
               onClick={() => setIndex(i)}
               className={`h-3 w-3 rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${

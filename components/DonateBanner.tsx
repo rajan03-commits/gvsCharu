@@ -1,8 +1,19 @@
 import Image from "next/image";
 import ButtonLink from "@/components/ButtonLink";
 import { homeImages } from "@/app/lib/homeVisuals";
+import { en } from "@/app/lib/i18n/en";
 
-export default function DonateBanner() {
+export default function DonateBanner({
+  title = en.donateBanner.title,
+  text = en.donateBanner.text,
+  buttonLabel = en.nav.donate,
+  href = "/donate",
+}: {
+  title?: string;
+  text?: string;
+  buttonLabel?: string;
+  href?: string;
+}) {
   const image = homeImages.strip;
 
   return (
@@ -24,15 +35,12 @@ export default function DonateBanner() {
         <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
           <div>
             <h2 className="text-2xl font-bold text-white md:text-3xl">
-              Help a child find a loving home
+              {title}
             </h2>
-            <p className="mt-2 max-w-xl text-white">
-              Every contribution supports the care and protection of children
-              in need.
-            </p>
+            <p className="mt-2 max-w-xl text-white">{text}</p>
           </div>
-          <ButtonLink href="/donate" variant="light">
-            Donate Now
+          <ButtonLink href={href} variant="light">
+            {buttonLabel}
           </ButtonLink>
         </div>
       </div>
