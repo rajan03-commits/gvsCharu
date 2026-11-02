@@ -3,12 +3,15 @@ import Image from "next/image";
 export default function PromiseBanner({
   text,
   image,
+  heading = "Our Promise",
 }: {
   text: string;
   image?: { src: string; alt: string; position?: string };
+  heading?: string;
 }) {
-  // "A. B. C." becomes ["A.", "B.", "C."] so each promise gets its own line
-  const lines = text.split(/(?<=\.)\s+/);
+  // "A. B. C." becomes ["A.", "B.", "C."] so each promise gets its own line.
+  // The Hindi full stop "।" (danda) counts as a sentence end too.
+  const lines = text.split(/(?<=[.।])\s+/);
 
   return (
     <section className="relative isolate overflow-hidden bg-primary">
@@ -27,7 +30,7 @@ export default function PromiseBanner({
       )}
       <div className="relative mx-auto max-w-6xl px-6 py-20 text-center">
         <p className="text-sm font-semibold uppercase tracking-widest text-white">
-          Our Promise
+          {heading}
         </p>
         <p className="mt-6 text-balance text-2xl font-bold leading-snug text-white md:text-4xl">
           {lines.map((line) => (
