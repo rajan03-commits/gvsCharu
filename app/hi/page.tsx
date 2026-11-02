@@ -12,6 +12,7 @@ import { homeImages } from "@/app/lib/homeVisuals";
 import { aboutImages } from "@/app/lib/aboutVisuals";
 import { imageDisclaimerHi, siteNameHi } from "@/app/lib/site";
 import { hi } from "@/app/lib/i18n/hi";
+import { hrefFor } from "@/app/lib/i18n/locale";
 import {
   heroSlidesHi,
   aboutIntroHi,
@@ -44,6 +45,15 @@ const missionLabelsHi = {
   showLess: hi.common.showLess,
 };
 
+// Buttons point to a Hindi page if one exists, otherwise to the English page
+const slides = heroSlidesHi.map((slide) => ({
+  ...slide,
+  buttons: slide.buttons.map((button) => ({
+    ...button,
+    href: hrefFor(button.href, "hi"),
+  })),
+}));
+
 export default function HindiHome() {
   const aboutPhoto = homeImages.about;
 
@@ -51,7 +61,7 @@ export default function HindiHome() {
     <>
       <Section>
         <HeroSlider
-          slides={heroSlidesHi}
+          slides={slides}
           note={imageDisclaimerHi}
           labels={sliderLabelsHi}
         />
@@ -69,7 +79,7 @@ export default function HindiHome() {
             </h2>
             <p className="mt-4 text-lg text-foreground">{aboutIntroHi}</p>
             <Link
-              href="/hi/about"
+              href={hrefFor("/about", "hi")}
               className="mt-6 inline-block font-semibold text-primary underline underline-offset-4 hover:text-primary-hover"
             >
               {hi.home.learnMore}
@@ -145,7 +155,7 @@ export default function HindiHome() {
           ))}
         </ol>
         <div className="mt-8">
-          <ButtonLink href="/hi/adoption" variant="outline">
+          <ButtonLink href={hrefFor("/adoption", "hi")} variant="outline">
             {hi.home.seeFullProcedure}
           </ButtonLink>
         </div>
@@ -160,7 +170,7 @@ export default function HindiHome() {
             {storyPlaceholderHi}
           </blockquote>
           <Link
-            href="/hi/stories"
+            href={hrefFor("/stories", "hi")}
             className="mt-6 inline-block font-semibold text-primary underline underline-offset-4 hover:text-primary-hover"
           >
             {hi.home.readMoreStories}
@@ -172,7 +182,7 @@ export default function HindiHome() {
         title={hi.donateBanner.title}
         text={hi.donateBanner.text}
         buttonLabel={hi.nav.donate}
-        href="/hi/donate"
+        href={hrefFor("/donate", "hi")}
       />
     </>
   );

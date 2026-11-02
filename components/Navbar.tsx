@@ -6,24 +6,24 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { links } from "@/app/lib/link";
 import {
-  localizePath,
+  hrefFor,
+  otherLanguageHref,
   stripLocale,
   type Locale,
 } from "@/app/lib/i18n/locale";
-
-// Turn the language switch on once the Hindi Home page exists
-const SHOW_LANGUAGE_SWITCH = false;
 
 export default function Navbar({
   locale,
   name,
   nav,
   a11y,
+  showSwitch,
 }: {
   locale: Locale;
   name: string;
   nav: Record<string, string>;
   a11y: { mainMenu: string; toggleMenu: string; language: string };
+  showSwitch: boolean;
 }) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +31,6 @@ export default function Navbar({
   // "/hi/about" becomes "/about", so it can be compared with the link's href
   const currentPath = stripLocale(pathname);
   const otherLocale: Locale = locale === "en" ? "hi" : "en";
-  const switchHref = localizePath(currentPath, otherLocale);
 
   return (
     <header className="border-b border-border bg-background">
@@ -40,7 +39,7 @@ export default function Navbar({
         className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4"
       >
         <Link
-          href={localizePath("/", locale)}
+          href={hrefFor("/", locale)}
           translate="no"
           className="max-w-40 text-lg font-bold leading-tight text-foreground"
         >
@@ -65,7 +64,7 @@ export default function Navbar({
             return (
               <Link
                 key={link.href}
-                href={localizePath(link.href, locale)}
+                href={hrefFor(link.href, locale)}
                 onClick={() => setIsOpen(false)}
                 className={`whitespace-nowrap rounded-md px-3 py-2 transition-colors ${
                   isActive
@@ -78,9 +77,9 @@ export default function Navbar({
             );
           })}
 
-          {SHOW_LANGUAGE_SWITCH && (
+          {showSwitch && (
             <Link
-              href={switchHref}
+              href={otherLanguageHref(pathname, locale)}
               hrefLang={otherLocale}
               lang={otherLocale}
               aria-label={a11y.language}
@@ -92,7 +91,7 @@ export default function Navbar({
           )}
 
           <Link
-            href={localizePath("/donate", locale)}
+            href={hrefFor("/donate", locale)}
             onClick={() => setIsOpen(false)}
             className="whitespace-nowrap rounded-md bg-primary px-5 py-3 text-center font-semibold text-white transition-colors hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >

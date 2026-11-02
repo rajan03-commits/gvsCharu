@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { links } from "@/app/lib/link";
 import ContactInfo from "@/components/ContactInfo";
-import { localizePath, type Locale } from "@/app/lib/i18n/locale";
+import { hrefFor, type Locale } from "@/app/lib/i18n/locale";
 import type { Dictionary } from "@/app/lib/i18n/en";
 
 export default function Footer({
@@ -22,7 +22,7 @@ export default function Footer({
           {/* NGO information */}
           <div>
             <Link
-              href={localizePath("/", locale)}
+              href={hrefFor("/", locale)}
               translate="no"
               className="text-xl font-bold text-foreground"
             >
@@ -34,7 +34,7 @@ export default function Footer({
             </p>
 
             <Link
-              href={localizePath("/donate", locale)}
+              href={hrefFor("/donate", locale)}
               className="mt-5 inline-block rounded-md bg-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-hover"
             >
               {dict.nav.donate}
@@ -51,7 +51,7 @@ export default function Footer({
               {links.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={localizePath(link.href, locale)}
+                    href={hrefFor(link.href, locale)}
                     className="text-sm text-foreground transition-colors hover:text-primary"
                   >
                     {dict.nav[link.key]}
@@ -79,7 +79,7 @@ export default function Footer({
             </div>
 
             <Link
-              href={localizePath("/contact", locale)}
+              href={hrefFor("/contact", locale)}
               className="mt-3 inline-block text-sm font-medium text-foreground underline underline-offset-4 hover:text-primary"
             >
               {dict.common.getInTouch}

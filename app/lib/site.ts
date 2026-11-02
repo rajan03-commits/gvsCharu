@@ -12,6 +12,11 @@ export const siteUrl = "https://gvscharu.example";
 // placeholders (bank details, QR, certificates) are filled in.
 export const allowIndexing = false;
 
+// Keep false until the NGO has approved the Hindi text in writing.
+// While false, the live site hides the language switch (you still see it
+// on your own computer with npm run dev).
+export const hindiApproved = false;
+
 export const imageDisclaimer =
   "Pictures on this website are for representation only and do not show the children in our care.";
 

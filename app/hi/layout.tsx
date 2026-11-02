@@ -9,8 +9,10 @@ import {
   siteName,
   siteNameHi,
   siteUrl,
+  hindiApproved,
 } from "@/app/lib/site";
 import { hi } from "@/app/lib/i18n/hi";
+
 
 // Geist has no Devanagari letters, so Hindi pages load this font instead.
 // It is loaded here only, so English visitors never download it.
@@ -72,6 +74,7 @@ export default function HindiLayout({
           name={siteNameHi}
           nav={hi.nav}
           a11y={hi.a11y}
+          showSwitch={hindiApproved || process.env.NODE_ENV !== "production"}
         />
         <main className="flex-1">{children}</main>
         <Footer
