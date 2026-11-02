@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { allowIndexing, siteName, siteUrl } from "@/app/lib/site";
+import { allowIndexing, imageDisclaimer, siteName, siteUrl } from "@/app/lib/site";
 import { en } from "@/app/lib/i18n/en";
 
 const geistSans = Geist({
@@ -61,7 +61,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           a11y={en.a11y}
         />
         <main className="flex-1">{children}</main>
-        <Footer />
+          <Footer
+          locale="en"
+          name={siteName}
+          dict={en}
+          disclaimer={imageDisclaimer}
+        />
       </body>
     </html>
   );

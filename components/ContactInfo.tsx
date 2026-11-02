@@ -1,10 +1,20 @@
 import { MapPin, Mail, Phone, Navigation } from "lucide-react";
 import { contact } from "@/app/lib/contact";
+import { en } from "@/app/lib/i18n/en";
+
+// English by default, so the pages that don't pass labels stay unchanged
+const defaultLabels = {
+  viewOnMaps: en.common.viewOnMaps,
+  opensInMaps: en.a11y.opensInMaps,
+  opensInNewTab: en.a11y.opensInNewTab,
+};
 
 export default function ContactInfo({
   showMap = true,
+  labels = defaultLabels,
 }: {
   showMap?: boolean;
+  labels?: typeof defaultLabels;
 }) {
   return (
     <address className="text-sm not-italic leading-6 text-foreground">
@@ -18,7 +28,7 @@ export default function ContactInfo({
             className="underline underline-offset-4 hover:text-primary"
           >
             {contact.address}
-            <span className="sr-only">(opens in Google Maps in a new tab)</span>
+            <span className="sr-only">{labels.opensInMaps}</span>
           </a>
         </li>
 
@@ -51,8 +61,8 @@ export default function ContactInfo({
           className="mt-4 inline-flex items-center gap-2 rounded-md border border-primary px-4 py-2 font-medium text-primary transition-colors hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           <Navigation size={16} aria-hidden="true" />
-          View location on Google Maps
-          <span className="sr-only">(opens in a new tab)</span>
+          {labels.viewOnMaps}
+          <span className="sr-only">{labels.opensInNewTab}</span>
         </a>
       )}
     </address>

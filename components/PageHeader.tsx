@@ -4,18 +4,24 @@ import Section from "@/components/Section";
 export default function PageHeader({
   title,
   crumb = title,
+  homeLabel = "Home",
+  homeHref = "/",
+  breadcrumbLabel = "Breadcrumb",
 }: {
   title: string;
   crumb?: string;
+  homeLabel?: string;
+  homeHref?: string;
+  breadcrumbLabel?: string;
 }) {
   return (
     <Section tone="surface">
-      <nav aria-label="Breadcrumb" className="text-sm text-foreground">
+      <nav aria-label={breadcrumbLabel} className="text-sm text-foreground">
         <Link
-          href="/"
+          href={homeHref}
           className="underline underline-offset-4 hover:text-primary"
         >
-          Home
+          {homeLabel}
         </Link>
         <span aria-hidden="true"> / </span>
         <span aria-current="page">{crumb}</span>
