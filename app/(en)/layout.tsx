@@ -4,6 +4,7 @@ import "../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { allowIndexing, siteName, siteUrl } from "@/app/lib/site";
+import { en } from "@/app/lib/i18n/en";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,7 +54,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             __html: JSON.stringify(organisationJsonLd).replace(/</g, "\\u003c"),
           }}
         />
-        <Navbar />
+        <Navbar
+          locale="en"
+          name={siteName}
+          nav={en.nav}
+          a11y={en.a11y}
+        />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

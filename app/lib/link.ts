@@ -1,15 +1,22 @@
+export type NavKey =
+  | "home"
+  | "about"
+  | "adoption"
+  | "gallery"
+  | "stories"
+  | "contact";
+
 type Navlink = {
-    label: string;
-    href: string;
-}
+  key: NavKey;
+  label: string; // English label, still used by Footer until it gets a dictionary
+  href: string;
+};
 
-export const links: Navlink[] =[
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Adoption Procedure", href: "/adoption" },
-  { label: "Photo Gallery", href: "/gallery" },
-  { label: "Success Stories", href: "/stories" },
-  { label: "Contact Us", href: "/contact" },
+export const links: Navlink[] = [
+  { key: "home", label: "Home", href: "/" },
+  { key: "about", label: "About Us", href: "/about" },
+  { key: "adoption", label: "Adoption Procedure", href: "/adoption" },
+  { key: "gallery", label: "Photo Gallery", href: "/gallery" },
+  { key: "stories", label: "Success Stories", href: "/stories" },
+  { key: "contact", label: "Contact Us", href: "/contact" },
 ];
-
-
