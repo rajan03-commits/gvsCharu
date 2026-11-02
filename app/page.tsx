@@ -52,7 +52,7 @@ export default function Home() {
                   alt={aboutPhoto.alt}
                   position={aboutPhoto.position}
                   placeholder="[Photo]"
-                  className="aspect-[4/3]"
+                  className="aspect-4/3"
                   sizes="(min-width: 1024px) 50vw, 100vw"
                 />
                 <figcaption className="mt-2 text-sm text-foreground">
