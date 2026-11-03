@@ -14,7 +14,7 @@ export const allowIndexing = false;
 
 // Keep false until the NGO has approved the Hindi text in writing.
 // While false, the live site hides the language switch and blocks /hi.
-export const hindiApproved = false;
+export const hindiApproved = true;
 
 export const imageDisclaimer =
   "Pictures on this website are for representation only and do not show the children in our care.";
