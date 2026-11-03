@@ -59,7 +59,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           name={siteName}
           nav={en.nav}
           a11y={en.a11y}
-          showSwitch={hindiApproved || process.env.NODE_ENV !== "production"}
+          showSwitch={hindiApproved || process.env.VERCEL !== "1"}
         />
         <main className="flex-1">{children}</main>
           <Footer
