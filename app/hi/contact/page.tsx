@@ -3,7 +3,6 @@ import ContactForm from "@/components/ContactForm";
 import ContactInfo from "@/components/ContactInfo";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
-import { contact } from "@/app/lib/contact";
 import { hi } from "@/app/lib/i18n/hi";
 import { formLabelsHi } from "@/app/lib/i18n/forms";
 import { addressHi, contactPageHi } from "@/app/lib/hi/contact";
@@ -49,12 +48,18 @@ export default function HindiContactPage() {
                 }}
               />
             </div>
-            <p className="mt-6 text-foreground">
-              <span className="font-semibold">
-                {contactPageHi.visitingHours}
-              </span>{" "}
-              {contactPageHi.visitingHoursValue}
-            </p>
+            <ul className="mt-6 space-y-2 text-foreground">
+              <li>
+                <span className="font-semibold">{contactPageHi.officeHours}</span>{" "}
+                {contactPageHi.officeHoursValue}
+              </li>
+              <li>
+                <span className="font-semibold">
+                  {contactPageHi.adoptionHours}
+                </span>{" "}
+                {contactPageHi.adoptionHoursValue}
+              </li>
+            </ul>
           </div>
         </div>
       </Section>

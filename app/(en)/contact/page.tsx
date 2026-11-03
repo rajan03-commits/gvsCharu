@@ -8,7 +8,7 @@ import { contact } from "@/app/lib/contact";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Contact Gramin Vikas Samiti Charu in Gonda, Uttar Pradesh. Send an enquiry about adoption or support, and ask about visiting by appointment.",
+    "Contact Gramin Vikas Samiti Charu in Gonda, Uttar Pradesh. Send an enquiry about adoption or support, and find our office hours.",
 };
 export default function ContactPage() {
   return (
@@ -35,10 +35,18 @@ export default function ContactPage() {
             <div className="mt-6">
               <ContactInfo />
             </div>
-            <p className="mt-6 text-foreground">
-              <span className="font-semibold">Visiting hours:</span>{" "}
-              {contact.visitingHours}
-            </p>
+            <ul className="mt-6 space-y-2 text-foreground">
+              <li>
+                <span className="font-semibold">Office hours:</span>{" "}
+                {contact.visitingHours}
+              </li>
+              <li>
+                <span className="font-semibold">
+                  For adoption-related queries:
+                </span>{" "}
+                {contact.adoptionHours}
+              </li>
+            </ul>
           </div>
         </div>
       </Section>

@@ -31,6 +31,8 @@ export default function Navbar({
   // "/hi/about" becomes "/about", so it can be compared with the link's href
   const currentPath = stripLocale(pathname);
   const otherLocale: Locale = locale === "en" ? "hi" : "en";
+  const switchHref = otherLanguageHref(pathname, locale);
+  const switchLabel = locale === "en" ? "हिन्दी" : "English";
 
   return (
     <header className="border-b border-border bg-background">
@@ -46,15 +48,30 @@ export default function Navbar({
           {name}
         </Link>
 
-        <button
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-expanded={isOpen}
-          aria-label={a11y.toggleMenu}
-          className="rounded-md border border-border px-3 py-2 text-foreground xl:hidden"
-        >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        {/* Phone and tablet: the language button sits left of the menu button */}
+        <div className="flex shrink-0 items-center gap-2 xl:hidden">
+          {showSwitch && (
+            <Link
+              href={switchHref}
+              hrefLang={otherLocale}
+              lang={otherLocale}
+              aria-label={a11y.language}
+              onClick={() => setIsOpen(false)}
+              className="rounded-md border border-primary px-3 py-2 text-sm font-semibold text-primary transition-colors hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >
+              {switchLabel}
+            </Link>
+          )}
+          <button
+            type="button"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-label={a11y.toggleMenu}
+            className="rounded-md border border-border px-3 py-2 text-foreground"
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
 
         <div
           className={`${isOpen ? "flex" : "hidden"} w-full flex-col gap-1 xl:flex xl:w-auto xl:flex-row xl:items-center xl:gap-x-2`}
@@ -77,16 +94,16 @@ export default function Navbar({
             );
           })}
 
+          {/* Desktop: the language link stays in the menu row */}
           {showSwitch && (
             <Link
-              href={otherLanguageHref(pathname, locale)}
+              href={switchHref}
               hrefLang={otherLocale}
               lang={otherLocale}
               aria-label={a11y.language}
-              onClick={() => setIsOpen(false)}
-              className="whitespace-nowrap rounded-md px-3 py-2 font-semibold text-primary transition-colors hover:text-primary-hover"
+              className="hidden whitespace-nowrap rounded-md px-3 py-2 font-semibold text-primary transition-colors hover:text-primary-hover xl:inline-block"
             >
-              {locale === "en" ? "हिन्दी" : "English"}
+              {switchLabel}
             </Link>
           )}
 

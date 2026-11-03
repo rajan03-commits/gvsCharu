@@ -36,12 +36,13 @@ export const missionShortHi =
 export const visionShortHi =
   "एक ऐसा समाज जहाँ कोई भी बच्चा उपेक्षित न रहे, प्रत्येक बचपन सुरक्षित हो और हर युवा को अपनी क्षमता के अनुरूप आगे बढ़ने के समान अवसर प्राप्त हों।";
 
+// DRAFT Hindi wording for the NGO's numbers: they must confirm it.
+// DRAFT Hindi wording for the NGO's numbers: they must confirm it.
 export const impactHi = [
-  { value: "[संख्या 1]", label: "[संख्या 1 क्या गिनती है]" },
-  { value: "[संख्या 2]", label: "[संख्या 2 क्या गिनती है]" },
-  { value: "[संख्या 3]", label: "[संख्या 3 क्या गिनती है]" },
+  { value: "600+", label: "अब तक पालन-पोषण पाने वाले बच्चे" },
+  { value: "12", label: "विदेश में दत्तक ग्रहण किए गए बच्चे" },
+  { value: "66", label: "वर्तमान में हमारी देखरेख में बच्चे" },
 ];
-
 // Item 11, NGO wording. Same order as adoptionSteps in app/lib/adoption.ts.
 // These differ from the English step titles: see the question below.
 export const adoptionStepTitlesHi = [
