@@ -1,6 +1,6 @@
 export const siteName = "Gramin Vikas Samiti Charu";
 
-// Hindi name: item 1 approved the spelling चारू. The NGO's own later text
+// Hindi name: the NGO confirmed the spelling चारू (item 1 and the client).
 // uses चारु, so they must confirm one spelling in writing.
 export const siteNameHi = "ग्रामीण विकास समिति चारू";
 

@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { contact } from "@/app/lib/contact";
+import { fill, formLabelsEn, type FormLabels } from "@/app/lib/i18n/forms";
 
 type FormValues = {
   name: string;
@@ -23,20 +24,22 @@ function Field({
   id,
   label,
   error,
-  optional,
+  optionalText,
   children,
 }: {
   id: string;
   label: string;
   error?: string;
-  optional?: boolean;
+  optionalText?: string;
   children: React.ReactNode;
 }) {
   return (
     <div>
       <label htmlFor={id} className="mb-2 block font-medium text-foreground">
         {label}
-        {optional && <span className="font-normal"> (optional)</span>}
+        {optionalText && (
+          <span className="font-normal"> {optionalText}</span>
+        )}
       </label>
       {children}
       {error && (
@@ -48,7 +51,13 @@ function Field({
   );
 }
 
-export default function ContactForm() {
+export default function ContactForm({
+  labels = formLabelsEn,
+  language = "en",
+}: {
+  labels?: FormLabels;
+  language?: "en" | "hi";
+}) {
   const [status, setStatus] = useState<Status>("idle");
   const [captchaToken, setCaptchaToken] = useState("");
   const [captchaError, setCaptchaError] = useState(false);
@@ -116,7 +125,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6">
-      <Field id="name" label="Full name" error={errors.name?.message}>
+      <Field id="name" label={labels.fullName} error={errors.name?.message}>
         <input
           id="name"
           type="text"
@@ -124,11 +133,11 @@ export default function ContactForm() {
           aria-invalid={errors.name ? true : false}
           aria-describedby={errors.name ? "name-error" : undefined}
           className={inputClass}
-          {...register("name", { required: "Please enter your name." })}
+          {...register("name", { required: labels.nameRequired })}
         />
       </Field>
 
-      <Field id="email" label="Email" error={errors.email?.message}>
+      <Field id="email" label={labels.email} error={errors.email?.message}>
         <input
           id="email"
           type="email"
@@ -137,16 +146,21 @@ export default function ContactForm() {
           aria-describedby={errors.email ? "email-error" : undefined}
           className={inputClass}
           {...register("email", {
-            required: "Please enter your email address.",
+            required: labels.emailRequired,
             pattern: {
               value: /^\S+@\S+\.\S+$/,
-              message: "Please enter a valid email address.",
+              message: labels.emailInvalid,
             },
           })}
         />
       </Field>
 
-      <Field id="phone" label="Phone" optional error={errors.phone?.message}>
+      <Field
+        id="phone"
+        label={labels.phone}
+        optionalText={labels.optional}
+        error={errors.phone?.message}
+      >
         <input
           id="phone"
           type="tel"
@@ -158,23 +172,23 @@ export default function ContactForm() {
           {...register("phone", {
             pattern: {
               value: /^[0-9+\s-]{10,15}$/,
-              message: "Please enter a valid phone number.",
+              message: labels.phoneInvalid,
             },
           })}
         />
       </Field>
 
-      <Field id="topic" label="I am writing about">
+      <Field id="topic" label={labels.topic}>
         <select id="topic" className={inputClass} {...register("topic")}>
           {contact.topics.map((topic) => (
             <option key={topic} value={topic}>
-              {topic}
+              {labels.topics[topic] ?? topic}
             </option>
           ))}
         </select>
       </Field>
 
-      <Field id="message" label="Message" error={errors.message?.message}>
+      <Field id="message" label={labels.message} error={errors.message?.message}>
         <textarea
           id="message"
           rows={5}
@@ -182,10 +196,10 @@ export default function ContactForm() {
           aria-describedby={errors.message ? "message-error" : undefined}
           className={inputClass}
           {...register("message", {
-            required: "Please write your message.",
+            required: labels.messageRequired,
             minLength: {
               value: 10,
-              message: "Please write at least 10 characters.",
+              message: labels.messageShort,
             },
           })}
         />
@@ -208,6 +222,7 @@ export default function ContactForm() {
         <HCaptcha
           ref={captchaRef}
           sitekey={contact.captchaSiteKey}
+          languageOverride={language}
           reCaptchaCompat={false}
           onVerify={(token) => {
             setCaptchaToken(token);
@@ -217,7 +232,7 @@ export default function ContactForm() {
         />
         {captchaError && (
           <p role="alert" className="mt-2 text-sm text-red-700">
-            Please complete the security check above.
+            {labels.captchaError}
           </p>
         )}
       </div>
@@ -227,19 +242,19 @@ export default function ContactForm() {
         disabled={status === "sending"}
         className="rounded-md bg-primary px-8 py-3 font-semibold text-white transition-colors hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-60"
       >
-        {status === "sending" ? "Sending..." : "Send message"}
+        {status === "sending" ? labels.sending : labels.send}
       </button>
 
       <div aria-live="polite">
         {status === "success" && (
-          <p className="font-medium text-primary">
-            Thank you. Your message has been sent.
-          </p>
+          <p className="font-medium text-primary">{labels.success}</p>
         )}
         {status === "error" && (
           <p role="alert" className="text-red-700">
-            Sorry, your message could not be sent. Please call {contact.phone} or
-            email {contact.email} instead.
+            {fill(labels.sendFailed, {
+              phone: contact.phone,
+              email: contact.email,
+            })}
           </p>
         )}
       </div>

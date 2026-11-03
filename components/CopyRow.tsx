@@ -2,15 +2,18 @@
 
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
+import { copyLabelsEn, fill, type CopyLabels } from "@/app/lib/i18n/forms";
 
 type CopyStatus = "idle" | "copied" | "failed";
 
 export default function CopyRow({
   label,
   value,
+  labels = copyLabelsEn,
 }: {
   label: string;
   value: string;
+  labels?: CopyLabels;
 }) {
   const [status, setStatus] = useState<CopyStatus>("idle");
 
@@ -38,7 +41,7 @@ export default function CopyRow({
         <button
           type="button"
           onClick={handleCopy}
-          aria-label={`Copy ${label}`}
+          aria-label={fill(labels.copyAria, { label })}
           className="inline-flex items-center gap-2 rounded-md border border-primary px-3 py-2 text-sm font-medium text-primary transition-colors hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           {status === "copied" ? (
@@ -46,13 +49,13 @@ export default function CopyRow({
           ) : (
             <Copy size={16} aria-hidden="true" />
           )}
-          {status === "copied" ? "Copied" : "Copy"}
+          {status === "copied" ? labels.copied : labels.copy}
         </button>
       )}
 
       <span className="sr-only" aria-live="polite">
-        {status === "copied" && `${label} copied`}
-        {status === "failed" && `Could not copy ${label}. Please select the text instead.`}
+        {status === "copied" && fill(labels.copiedMsg, { label })}
+        {status === "failed" && fill(labels.failedMsg, { label })}
       </span>
     </div>
   );

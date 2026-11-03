@@ -2,7 +2,7 @@ export type Locale = "en" | "hi";
 
 // English paths that have a finished Hindi page.
 // Add a path here when its Hindi page is built, e.g. "/adoption".
-export const hindiPages: string[] = ["/", "/adoption"];
+export const hindiPages: string[] = ["/", "/adoption", "/contact", "/donate"];
 
 // "/about" becomes "/hi/about" for Hindi, and stays "/about" for English.
 // The Home page is the special case: "/" becomes "/hi".
