@@ -37,7 +37,7 @@ export default function DonateBanner({
             <h2 className="text-2xl font-bold text-white md:text-3xl">
               {title}
             </h2>
-            <p className="mt-2 max-w-xl text-white">{text}</p>
+            {text && <p className="mt-2 max-w-xl text-white">{text}</p>}
           </div>
           <ButtonLink href={href} variant="light">
             {buttonLabel}

@@ -15,7 +15,7 @@ export const aboutLead =
   "Every Child Deserves Safety, Dignity, and a Chance to Thrive.";
 
 export const aboutStory = [
-  "Since 1998, Gramin Vikas Samiti Charu has been committed to the care, protection, rehabilitation, and holistic development of vulnerable children in Gonda district, in Devipatan Mandal, Uttar Pradesh. Working in alignment with the objectives of Mission Vatsalya, we strive to provide a safe and nurturing environment for children in need of care and protection.",
+    "Since 2012, Gramin Vikas Samiti Charu has been committed to the care, protection, rehabilitation, and holistic development of vulnerable children in Gonda district, in Devipatan Mandal, Uttar Pradesh. Working in alignment with the objectives of Mission Vatsalya, we strive to provide a safe and nurturing environment for children in need of care and protection.",
   "Through our specialised childcare services, educational support, healthcare, counselling, and rehabilitation initiatives, we seek to protect children's rights and help them build brighter futures. We prioritise safe family-based care and social reintegration wherever appropriate, while providing compassionate residential care to children who need it.",
   "We believe every child deserves a childhood free from fear, an education that opens doors, and a future filled with hope.",
 ];

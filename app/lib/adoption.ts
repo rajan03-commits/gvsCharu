@@ -24,24 +24,24 @@ export const adoptionSteps: AdoptionStep[] = [
     link: { label: "Open the CARINGS portal", href: carings },
   },
   {
-    title: "Document Verification and Home Study",
+    title: "Document Verification and Home Study Report (HSR)",
     text: "The prescribed documents are verified, and a Home Study Report is prepared by the authorised adoption agency or designated professional. This assessment evaluates the prospective parents' suitability, readiness, family environment, and ability to provide appropriate care and protection to a child.",
   },
   {
-    title: "Eligibility Assessment and Child Referral",
+    title: "Child Referral and Matching",
     text: "After completion of the required formalities, eligible prospective adoptive parents proceed through the official adoption system. When a referral becomes available, the child's Child Study Report and Medical Examination Report are provided through the authorised process, subject to applicable regulations and availability.",
   },
   {
-    title: "Child Review and Acceptance",
+    title: "Review and Acceptance of the Child's Details",
     text: "Prospective adoptive parents review the child's available records and medical information and communicate their decision within the prescribed timeline. Child matching and acceptance are carried out according to the applicable adoption regulations and procedures.",
   },
   {
-    title: "Pre-Adoption Foster Care and Legal Formalities",
+    title: "Pre-Adoption Foster Care",
     text: "Where applicable, the child may be placed in pre-adoption foster care after completion of the prescribed formalities. The adoption case is then processed by the competent authorities in accordance with the applicable legal framework.",
   },
   {
-    title: "Adoption Order and Legal Completion",
-    text: "The adoption application is processed by the competent authority, including the District Magistrate where required by law. Following the adoption order, the necessary legal documentation and birth certificate formalities are completed through the authorised system.",
+    title: "Adoption Order by the Competent Authority",
+    text: "The adoption application is processed by the competent authority, and the adoption order is issued in accordance with the law. Following the adoption order, the necessary legal documentation and birth certificate formalities are completed through the authorised system.",
   },
   {
     title: "Post-Adoption Follow-Up",

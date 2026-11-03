@@ -33,7 +33,7 @@ import {
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Gramin Vikas Samiti Charu, serving Gonda district in Uttar Pradesh since 1998: our story, mission, vision, approach and values.",
+    "Learn about Gramin Vikas Samiti Charu, serving Gonda district in Uttar Pradesh since 2012: our story, mission, vision, approach and values.",
 };
 
 export default function AboutPage() {

@@ -1,5 +1,5 @@
 export const contact = {
-  address: "Headquarters Charu Niwas, Porter Ganj, Lucknow Road, Gonda, UP",
+  address: "Gramin Vikas Samiti Charu, Porter Ganj, Pathwaliya, Gonda Sadar, District Gonda, Uttar Pradesh – 271001, India.",
   email: "gvscharugonda01@gmail.com",
   phone: "+91 91619 25672",
   phoneHref: "tel:+919161925672",

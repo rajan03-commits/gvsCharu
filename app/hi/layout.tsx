@@ -12,7 +12,7 @@ import {
   hindiApproved,
 } from "@/app/lib/site";
 import { hi } from "@/app/lib/i18n/hi";
-
+import { addressHi } from "@/app/lib/hi/contact";
 
 // Geist has no Devanagari letters, so Hindi pages load this font instead.
 // It is loaded here only, so English visitors never download it.
@@ -25,12 +25,12 @@ const notoDevanagari = Noto_Sans_Devanagari({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
+    // DRAFT: the part after "|" is my wording, not yet approved by the NGO.
     default: `${siteNameHi} | बाल देखभाल और दत्तक ग्रहण`,
     template: `%s | ${siteNameHi}`,
   },
-  // DRAFT Hindi wording: the NGO must approve it in writing.
-  description:
-    "ग्रामीण विकास समिति चारु बच्चों की देखभाल और दत्तक ग्रहण से जुड़ी संस्था है। हमारे कार्य और दत्तक ग्रहण प्रक्रिया की जानकारी लें, और दान देकर बच्चों की सहायता करें।",
+  // Item 13, NGO wording
+  description: `${siteNameHi}, गोंडा में बच्चों की देखभाल, संरक्षण एवं दत्तक ग्रहण से संबंधित कार्यों के लिए प्रतिबद्ध संस्था है। हमारी गतिविधियों, दत्तक ग्रहण प्रक्रिया और बच्चों के कल्याण में सहयोग के अवसरों के बारे में जानें।`,
   openGraph: {
     siteName: siteNameHi,
     type: "website",
@@ -45,7 +45,9 @@ const organisationJsonLd = {
   name: siteNameHi,
   alternateName: siteName,
   url: siteUrl,
-  foundingDate: "1998",
+  // Same as the English layout. Confirm with the NGO what 2012 stands for
+  // (the society itself?) and change BOTH layouts if it is wrong.
+  foundingDate: "2012",
   areaServed: "Gonda district, Uttar Pradesh, India",
 };
 
@@ -82,6 +84,7 @@ export default function HindiLayout({
           name={siteNameHi}
           dict={hi}
           disclaimer={imageDisclaimerHi}
+          address={addressHi}
         />
       </body>
     </html>

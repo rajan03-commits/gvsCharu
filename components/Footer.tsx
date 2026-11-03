@@ -9,11 +9,13 @@ export default function Footer({
   name,
   dict,
   disclaimer,
+  address,
 }: {
   locale: Locale;
   name: string;
   dict: Dictionary;
   disclaimer: string;
+  address?: string;
 }) {
   return (
     <footer className="border-t border-border bg-surface">
@@ -70,6 +72,7 @@ export default function Footer({
             <div className="mt-4">
               <ContactInfo
                 showMap={false}
+                address={address}
                 labels={{
                   viewOnMaps: dict.common.viewOnMaps,
                   opensInMaps: dict.a11y.opensInMaps,

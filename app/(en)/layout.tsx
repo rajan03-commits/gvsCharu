@@ -37,7 +37,7 @@ const organisationJsonLd = {
   "@type": "NGO",
   name: siteName,
   url: siteUrl,
-  foundingDate: "1998",
+  foundingDate: "2012",
   areaServed: "Gonda district, Uttar Pradesh, India",
 };
 

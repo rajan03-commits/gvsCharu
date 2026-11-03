@@ -1,11 +1,12 @@
 import { heroSlides, type HeroSlide } from "@/app/lib/homeSlides";
+import { siteNameHi } from "@/app/lib/site";
 
-// DRAFT Hindi wording: the NGO must approve every line in writing.
+// Hindi wording supplied by the NGO, except the lines marked below.
 // The photos are reused from the English slides, so only the words change.
 export const heroSlidesHi: HeroSlide[] = [
   {
-    kicker: "गोंडा में बाल दत्तक ग्रहण",
-    title: "हर बच्चे को परिवार का प्यार",
+    kicker: "गोंडा में दत्तक ग्रहण", // item 6, NGO wording
+    title: "हर बच्चे को परिवार का प्यार", // DRAFT: NGO has not answered yet
     buttons: [
       { label: "दत्तक ग्रहण प्रक्रिया", href: "/hi/adoption" },
       { label: "संपर्क करें", href: "/hi/contact", variant: "outline" },
@@ -13,24 +14,27 @@ export const heroSlidesHi: HeroSlide[] = [
     image: heroSlides[0].image,
   },
   {
-    kicker: "हमारे कार्य में सहयोग करें",
-    title: "किसी बच्चे को प्यार भरा घर दिलाने में मदद करें",
+    kicker: "हमारे कार्य में सहयोग करें", // item 6, NGO wording
+    title: "किसी बच्चे को प्यार भरा घर दिलाने में मदद करें", // DRAFT
     buttons: [{ label: "अभी दान करें", href: "/hi/donate" }],
     image: heroSlides[1].image,
   },
 ];
 
-export const aboutIntroHi =
-  "1998 से ग्रामीण विकास समिति चारु गोंडा ज़िले (देवीपाटन मंडल, उत्तर प्रदेश) में ज़रूरतमंद बच्चों की देखभाल, संरक्षण, पुनर्वास और समग्र विकास के लिए प्रतिबद्ध है। मिशन वात्सल्य के उद्देश्यों के अनुरूप कार्य करते हुए हम देखभाल और संरक्षण की आवश्यकता वाले बच्चों को सुरक्षित और स्नेहपूर्ण वातावरण देने का प्रयास करते हैं।";
+// Item 7, NGO wording. Year confirmed as 2012 by the client.
+export const aboutIntroHi = `वर्ष 2012 से ${siteNameHi}, उत्तर प्रदेश के गोंडा जिले में जरूरतमंद बच्चों की देखभाल, संरक्षण, पुनर्वास एवं सर्वांगीण विकास के लिए प्रतिबद्ध है। मिशन वात्सल्य के उद्देश्यों के अनुरूप कार्य करते हुए संस्था देखभाल एवं संरक्षण की आवश्यकता वाले बच्चों को सुरक्षित, स्नेहपूर्ण और सहयोगात्मक वातावरण प्रदान करने के लिए प्रयासरत है।`;
 
+
+// Item 8, NGO wording
 export const ourPromiseHi =
-  "देखभाल करुणा के साथ। संरक्षण ज़िम्मेदारी के साथ। अवसर बिना भेदभाव के।";
+  "करुणामय देखभाल। जिम्मेदार संरक्षण। बिना भेदभाव के समान अवसर।";
 
+// Item 9, NGO wording
 export const missionShortHi =
-  "हर बच्चे के अधिकारों की रक्षा करना, उसकी क्षमताओं को निखारना, और सुरक्षित, सहयोगी तथा गरिमापूर्ण जीवन के रास्ते बनाना।";
+  "प्रत्येक बच्चे के अधिकारों की रक्षा करना, उसकी क्षमताओं का विकास करना तथा उसके लिए सुरक्षित, सहयोगात्मक और गरिमापूर्ण जीवन के अवसर सुनिश्चित करने की दिशा में कार्य करना।";
 
 export const visionShortHi =
-  "ऐसा समाज जहाँ कोई बच्चा भुलाया न जाए, हर बचपन सुरक्षित हो, और हर युवा को आगे बढ़ने का अवसर मिले।";
+  "एक ऐसा समाज जहाँ कोई भी बच्चा उपेक्षित न रहे, प्रत्येक बचपन सुरक्षित हो और हर युवा को अपनी क्षमता के अनुरूप आगे बढ़ने के समान अवसर प्राप्त हों।";
 
 export const impactHi = [
   { value: "[संख्या 1]", label: "[संख्या 1 क्या गिनती है]" },
@@ -38,17 +42,17 @@ export const impactHi = [
   { value: "[संख्या 3]", label: "[संख्या 3 क्या गिनती है]" },
 ];
 
-// Same order as adoptionSteps in app/lib/adoption.ts.
-// Official CARA/CARINGS terms: the NGO must confirm each one.
+// Item 11, NGO wording. Same order as adoptionSteps in app/lib/adoption.ts.
+// These differ from the English step titles: see the question below.
 export const adoptionStepTitlesHi = [
   "ऑनलाइन पंजीकरण",
-  "दस्तावेज़ सत्यापन और होम स्टडी",
-  "पात्रता मूल्यांकन और बच्चे का रेफ़रल",
-  "बच्चे की समीक्षा और स्वीकृति",
-  "दत्तक-पूर्व फ़ोस्टर केयर और कानूनी औपचारिकताएँ",
-  "दत्तक ग्रहण आदेश और कानूनी पूर्णता",
-  "दत्तक ग्रहण के बाद अनुवर्ती जाँच",
+  "दस्तावेज़ों का सत्यापन एवं गृह अध्ययन रिपोर्ट (HSR)",
+  "बच्चे का रेफरल एवं मिलान",
+  "बच्चे के विवरण की समीक्षा एवं स्वीकृति",
+  "दत्तक-पूर्व पालक देखभाल (Pre-Adoption Foster Care)",
+  "सक्षम प्राधिकारी द्वारा दत्तक ग्रहण आदेश",
+  "दत्तक ग्रहण के बाद अनुवर्ती प्रक्रिया",
 ];
 
 export const storyPlaceholderHi =
-  "[एक छोटा कहानी-अंश, जिसे संस्था और परिवार ने स्वीकृत किया हो। कोई नाम, फ़ोटो या ऐसी जानकारी नहीं जिससे किसी बच्चे की पहचान हो सके।]"; 
+  "[एक छोटा कहानी-अंश, जिसे संस्था और परिवार ने स्वीकृत किया हो। कोई नाम, फ़ोटो या ऐसी जानकारी नहीं जिससे किसी बच्चे की पहचान हो सके।]";

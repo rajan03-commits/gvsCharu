@@ -1,8 +1,8 @@
 export const siteName = "Gramin Vikas Samiti Charu";
 
-// DRAFT Hindi name: the NGO must confirm the spelling in writing
-// (चारु or चारू) from their registration papers or letterhead.
-export const siteNameHi = "ग्रामीण विकास समिति चारु";
+// Hindi name: item 1 approved the spelling चारू. The NGO's own later text
+// uses चारु, so they must confirm one spelling in writing.
+export const siteNameHi = "ग्रामीण विकास समिति चारू";
 
 // PLACEHOLDER: replace with the real address once the domain is registered
 // in the NGO's name.
@@ -13,13 +13,12 @@ export const siteUrl = "https://gvscharu.example";
 export const allowIndexing = false;
 
 // Keep false until the NGO has approved the Hindi text in writing.
-// While false, the live site hides the language switch (you still see it
-// on your own computer with npm run dev).
+// While false, the live site hides the language switch and blocks /hi.
 export const hindiApproved = false;
 
 export const imageDisclaimer =
   "Pictures on this website are for representation only and do not show the children in our care.";
 
-// DRAFT Hindi wording: the NGO must approve it in writing.
+// Hindi wording supplied by the NGO (item 5).
 export const imageDisclaimerHi =
-  "इस वेबसाइट पर दिखाए गए चित्र केवल प्रतिनिधित्व के लिए हैं और हमारी देखरेख में रह रहे बच्चों को नहीं दर्शाते।";
+  "इस वेबसाइट पर प्रदर्शित चित्र केवल सांकेतिक उद्देश्य से हैं। इनमें हमारी संस्था की देखरेख में रह रहे बच्चों के वास्तविक चित्र शामिल नहीं हैं।";

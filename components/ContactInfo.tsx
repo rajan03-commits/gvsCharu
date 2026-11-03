@@ -12,9 +12,11 @@ const defaultLabels = {
 export default function ContactInfo({
   showMap = true,
   labels = defaultLabels,
+  address = contact.address,
 }: {
   showMap?: boolean;
   labels?: typeof defaultLabels;
+  address?: string;
 }) {
   return (
     <address className="text-sm not-italic leading-6 text-foreground">
@@ -27,7 +29,7 @@ export default function ContactInfo({
             rel="noopener noreferrer"
             className="underline underline-offset-4 hover:text-primary"
           >
-            {contact.address}
+            {address}
             <span className="sr-only">{labels.opensInMaps}</span>
           </a>
         </li>

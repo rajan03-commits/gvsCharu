@@ -43,9 +43,9 @@ export const en = {
     storiesOfHope: "Stories of Hope",
     readMoreStories: "Read more stories",
   },
-  donateBanner: {
-    title: "Help a child find a loving home",
-    text: "Every contribution supports the care and protection of children in need.",
+    donateBanner: {
+    title: "Donation",
+    text: "", // the NGO wants no sentence under the heading
   },
 };
 
