@@ -1,7 +1,11 @@
 import { ShieldCheck } from "lucide-react";
 
 // Decorative panel, so screen readers skip it (the same words appear in the page text)
-export default function CommitmentArt() {
+export default function CommitmentArt({
+  text = "Safe. Legal. Child-centric.",
+}: {
+  text?: string;
+}) {
   return (
     <div
       aria-hidden="true"
@@ -25,7 +29,7 @@ export default function CommitmentArt() {
         <ShieldCheck size={44} />
       </span>
       <p className="relative text-balance text-2xl font-bold text-foreground">
-        Safe. Legal. Child-centric.
+        {text}
       </p>
     </div>
   );
