@@ -5,9 +5,13 @@ import { useId, useState } from "react";
 export default function ReadMore({
   text,
   className = "",
+  moreLabel = "Read more",
+  lessLabel = "Show less",
 }: {
   text: string;
   className?: string;
+  moreLabel?: string;
+  lessLabel?: string;
 }) {
   const [open, setOpen] = useState(false);
   const id = useId();
@@ -30,7 +34,7 @@ export default function ReadMore({
         aria-controls={id}
         className="mt-2 font-semibold text-primary underline underline-offset-4 hover:text-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
       >
-        {open ? "Show less" : "Read more"}
+        {open ? lessLabel : moreLabel}
       </button>
     </>
   );

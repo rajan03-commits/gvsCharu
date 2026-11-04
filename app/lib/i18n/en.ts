@@ -9,6 +9,23 @@ export const en = {
     stories: "Success Stories",
     contact: "Contact Us",
     donate: "Donate Now",
+    // About Us dropdown
+    aboutNgo: "About NGO",
+    mission: "Our Mission",
+    vision: "Our Vision",
+    board: "Our Board",
+    awards: "Awards & Recognitions",
+    reports: "Annual Reports",
+    projects: "Our Projects",
+    saa: "Special Adoption Agency (SAA)",
+    cciInfants: "Child Care Institute (CCI): Infants",
+    cciGirls: "Child Care Institute (CCI): Girls",
+    cciBoys: "Child Care Institute (CCI): Boys",
+    niosObe: "NIOS (OBE) Institute",
+    niosVocational: "NIOS Vocational Centre",
+    moreInfo: "Important Information",
+    rules: "Rules & Laws",
+    charter: "Citizen's Charter",
   },
   a11y: {
     mainMenu: "Main",
@@ -43,7 +60,7 @@ export const en = {
     storiesOfHope: "Stories of Hope",
     readMoreStories: "Read more stories",
   },
-    donateBanner: {
+  donateBanner: {
     title: "Donation",
     text: "", // the NGO wants no sentence under the heading
   },

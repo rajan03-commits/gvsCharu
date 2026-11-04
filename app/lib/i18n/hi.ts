@@ -11,6 +11,23 @@ export const hi: Dictionary = {
     stories: "सफलता की कहानियाँ",
     contact: "संपर्क करें",
     donate: "अभी दान करें",
+    // About Us dropdown (DRAFT: the NGO must approve)
+    aboutNgo: "संस्था के बारे में",
+    mission: "हमारा मिशन",
+    vision: "हमारी दृष्टि",
+    board: "हमारा बोर्ड",
+    awards: "पुरस्कार और सम्मान",
+    reports: "वार्षिक रिपोर्ट",
+    projects: "हमारी परियोजनाएँ",
+    saa: "विशेषीकृत दत्तक ग्रहण एजेंसी (SAA)",
+    cciInfants: "बाल देखरेख संस्था (CCI): शिशु",
+    cciGirls: "बाल देखरेख संस्था (CCI): बालिकाएँ",
+    cciBoys: "बाल देखरेख संस्था (CCI): बालक",
+    niosObe: "NIOS (OBE) संस्थान",
+    niosVocational: "NIOS व्यावसायिक केंद्र",
+    moreInfo: "महत्वपूर्ण जानकारी",
+    rules: "नियम और कानून",
+    charter: "नागरिक अधिकार पत्र",
   },
   a11y: {
     mainMenu: "मुख्य मेनू",
@@ -45,7 +62,7 @@ export const hi: Dictionary = {
     storiesOfHope: "आशा की कहानियाँ",
     readMoreStories: "और कहानियाँ पढ़ें",
   },
-    donateBanner: {
+  donateBanner: {
     title: "दान",
     text: "",
   },

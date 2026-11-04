@@ -48,16 +48,21 @@ export default function MissionVision({
   labels = defaultLabels,
   shortMission = mission.short,
   shortVision = vision.short,
+  missionContent = mission,
+  visionContent = vision,
 }: {
   tone?: "plain" | "surface";
   detailed?: boolean;
   labels?: typeof defaultLabels;
   shortMission?: string;
   shortVision?: string;
+  // The Hindi About page passes its own full texts. English pages use the defaults.
+  missionContent?: { title: string; full: string[] };
+  visionContent?: { title: string; full: string[]; highlight: string };
 }) {
   if (detailed) {
-    const [missionFirst, ...missionRest] = mission.full;
-    const [visionFirst, ...visionRest] = vision.full;
+    const [missionFirst, ...missionRest] = missionContent.full;
+    const [visionFirst, ...visionRest] = visionContent.full;
 
     return (
       <Section tone={tone}>
@@ -67,7 +72,7 @@ export default function MissionVision({
               {labels.ourMission}
             </h2>
             <p className="mt-2 text-lg font-semibold text-primary">
-              {mission.title}
+              {missionContent.title}
             </p>
             <p className="mt-6 text-foreground">{missionFirst}</p>
             <Expandable
@@ -84,7 +89,7 @@ export default function MissionVision({
               {labels.ourVision}
             </h2>
             <p className="mt-2 text-lg font-semibold text-primary">
-              {vision.title}
+              {visionContent.title}
             </p>
             <p className="mt-6 text-foreground">{visionFirst}</p>
             <Expandable
@@ -96,7 +101,7 @@ export default function MissionVision({
               ))}
             </Expandable>
             <p className="mt-6 font-semibold text-foreground">
-              {vision.highlight}
+              {visionContent.highlight}
             </p>
           </div>
         </div>
