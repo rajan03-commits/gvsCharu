@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/PageHeader";
@@ -30,6 +31,7 @@ export default async function ProjectPage({ params }: Props) {
   const Icon = project.icon;
   const previous = projects[(index + projects.length - 1) % projects.length];
   const next = projects[(index + 1) % projects.length];
+  const hasPhotos = project.photos.length > 0;
 
   return (
     <>
@@ -71,7 +73,29 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       </Section>
 
-      <Section tone="surface">
+      {/* Photos of the unit: shown only when there are some */}
+      {hasPhotos && (
+        <Section tone="surface">
+          <h2 className="text-2xl font-bold text-foreground">Photos</h2>
+          <ul className="mt-6 grid gap-6 sm:grid-cols-2">
+            {project.photos.map((photo) => (
+              <li key={photo.src}>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-background">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
+
+      <Section tone={hasPhotos ? "plain" : "surface"}>
         <h2 className="text-2xl font-bold text-foreground">
           Registration and certificates
         </h2>
@@ -87,7 +111,7 @@ export default async function ProjectPage({ params }: Props) {
         </p>
       </Section>
 
-      <Section>
+      <Section tone={hasPhotos ? "surface" : "plain"}>
         <nav
           aria-label="Other projects"
           className="flex flex-wrap items-center justify-between gap-4"

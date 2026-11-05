@@ -8,6 +8,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+export type ProjectPhoto = { src: string; alt: string };
+
 export type Project = {
   slug: string;
   name: string;
@@ -15,6 +17,8 @@ export type Project = {
   summary: string;
   text: string;
   facts: { label: string; value: string }[];
+  // Facility photos only, no identifiable children. Files are in public/images/projects.
+  photos: ProjectPhoto[];
   icon: LucideIcon;
 };
 
@@ -33,6 +37,16 @@ export const projects: Project[] = [
         value: "Follows CARA regulations and the competent authorities",
       },
     ],
+    photos: [
+      {
+        src: "/images/projects/saa-1.jpg",
+        alt: "The infant ward, with cots, cradles and toys on the wall",
+      },
+      {
+        src: "/images/projects/saa-2.jpg",
+        alt: "The infant ward, with the weekly meal chart for young children on the wall",
+      },
+    ],
     icon: HeartHandshake,
   },
   {
@@ -42,6 +56,16 @@ export const projects: Project[] = [
     summary: "[One line from the NGO.]",
     text: "[Two or three sentences from the NGO.]",
     facts: [{ label: "Who it serves", value: "[From the NGO]" }],
+    photos: [
+      {
+        src: "/images/projects/cci-infants-1.jpg",
+        alt: "A bright infant room with cots and cradles",
+      },
+      {
+        src: "/images/projects/cci-infants-2.jpg",
+        alt: "Another view of the infant room, with a refrigerator and a store room",
+      },
+    ],
     icon: Baby,
   },
   {
@@ -57,6 +81,9 @@ export const projects: Project[] = [
         value: "The Child Welfare Committee and other competent authorities",
       },
     ],
+    // Dormitory photos are in public/images/projects (dormitory-1 to dormitory-4).
+    // Add them here once the NGO says which dormitory is the girls' home.
+    photos: [],
     icon: Sparkles,
   },
   {
@@ -72,6 +99,7 @@ export const projects: Project[] = [
         value: "The Child Welfare Committee and other competent authorities",
       },
     ],
+    photos: [],
     icon: Compass,
   },
   {
@@ -81,6 +109,7 @@ export const projects: Project[] = [
     summary: "[One line from the NGO.]",
     text: "[Two or three sentences from the NGO.]",
     facts: [{ label: "Who it serves", value: "[From the NGO]" }],
+    photos: [],
     icon: GraduationCap,
   },
   {
@@ -90,6 +119,16 @@ export const projects: Project[] = [
     summary: "[One line from the NGO.]",
     text: "[Two or three sentences from the NGO.]",
     facts: [{ label: "Who it serves", value: "[From the NGO]" }],
+    photos: [
+      {
+        src: "/images/projects/vocational-1.jpg",
+        alt: "The vocational training hall, with handmade items laid out on tables",
+      },
+      {
+        src: "/images/projects/vocational-2.jpg",
+        alt: "The vocational training hall seen from the other end",
+      },
+    ],
     icon: Hammer,
   },
 ];

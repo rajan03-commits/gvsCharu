@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -111,9 +112,19 @@ export default function Navbar({
         <Link
           href={hrefFor("/", locale)}
           translate="no"
-          className="max-w-40 text-lg font-bold leading-tight text-foreground"
+          className="flex items-center gap-2.5 font-bold leading-tight text-foreground"
         >
-          {name}
+          {/* The NGO's own logo. The name beside it is the readable text. */}
+          <Image
+            src="/logo.png"
+            alt=""
+            width={44}
+            height={44}
+            className="h-11 w-11 shrink-0"
+          />
+          <span className="max-w-32 text-base sm:max-w-40 sm:text-lg">
+            {name}
+          </span>
         </Link>
 
         {/* Phone and tablet: the language button sits left of the menu button */}

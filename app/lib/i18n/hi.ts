@@ -1,7 +1,7 @@
 import type { Dictionary } from "./en";
 
-// DRAFT Hindi wording: the NGO must approve every line in writing.
-// "दत्तक ग्रहण" is the official CARA term; ask the NGO whether they prefer "गोद लेना".
+// Hindi wording. The menu words below follow the NGO's approved list (Part 1, revised).
+// "दत्तक ग्रहण" is the official CARA term.
 export const hi: Dictionary = {
   nav: {
     home: "होम",
@@ -11,23 +11,23 @@ export const hi: Dictionary = {
     stories: "सफलता की कहानियाँ",
     contact: "संपर्क करें",
     donate: "अभी दान करें",
-    // About Us dropdown (DRAFT: the NGO must approve)
+    // About Us dropdown
     aboutNgo: "संस्था के बारे में",
     mission: "हमारा मिशन",
     vision: "हमारी दृष्टि",
-    board: "हमारा बोर्ड",
-    awards: "पुरस्कार और सम्मान",
-    reports: "वार्षिक रिपोर्ट",
+    board: "हमारा शासी निकाय",
+    awards: "पुरस्कार एवं सम्मान",
+    reports: "वार्षिक प्रतिवेदन",
     projects: "हमारी परियोजनाएँ",
-    saa: "विशेषीकृत दत्तक ग्रहण एजेंसी (SAA)",
-    cciInfants: "बाल देखरेख संस्था (CCI): शिशु",
-    cciGirls: "बाल देखरेख संस्था (CCI): बालिकाएँ",
-    cciBoys: "बाल देखरेख संस्था (CCI): बालक",
-    niosObe: "NIOS (OBE) संस्थान",
-    niosVocational: "NIOS व्यावसायिक केंद्र",
-    moreInfo: "महत्वपूर्ण जानकारी",
-    rules: "नियम और कानून",
-    charter: "नागरिक अधिकार पत्र",
+    saa: "विशेषज्ञ दत्तक ग्रहण अभिकरण (SAA)",
+    cciInfants: "बाल देखरेख संस्थान (शिशु)",
+    cciGirls: "बाल देखरेख संस्थान (बालिका)",
+    cciBoys: "बाल देखरेख संस्थान (बालक)",
+    niosObe: "NIOS (OBE) अध्ययन केंद्र",
+    niosVocational: "NIOS व्यावसायिक प्रशिक्षण केंद्र",
+    moreInfo: "महत्वपूर्ण सूचनाएँ",
+    rules: "नियम एवं अधिनियम",
+    charter: "नागरिक चार्टर",
   },
   a11y: {
     mainMenu: "मुख्य मेनू",
