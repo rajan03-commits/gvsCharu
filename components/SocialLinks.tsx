@@ -1,3 +1,4 @@
+// FILE PATH: components/SocialLinks.tsx  (replaces the old file)
 import { socials } from "@/app/lib/socials";
 import type { Locale } from "@/app/lib/i18n/locale";
 
@@ -40,19 +41,23 @@ function Icon({ name }: { name: string }) {
   );
 }
 
-const boxClass = "flex h-10 w-10 items-center justify-center rounded-md";
-
 export default function SocialLinks({
   locale,
   className = "",
+  compact = false,
 }: {
   locale: Locale;
   className?: string;
+  // Smaller boxes, used in the phone header where space is tight
+  compact?: boolean;
 }) {
   const t = text[locale];
+  const boxClass = compact
+    ? "flex h-9 w-9 items-center justify-center rounded-md"
+    : "flex h-10 w-10 items-center justify-center rounded-md";
 
   return (
-    <ul aria-label={t.group} className={`flex items-center gap-1 ${className}`}>
+    <ul aria-label={t.group} className={`flex items-center ${compact ? "gap-0" : "gap-1"} ${className}`}>
       {socials.map((item) =>
         item.href ? (
           <li key={item.key}>

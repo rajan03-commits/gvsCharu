@@ -108,20 +108,22 @@ export default function Navbar({
     >
       <nav
         aria-label={a11y.mainMenu}
-        className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4 xl:gap-y-2"
+        className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6 xl:gap-y-2"
       >
         <Link
           href={hrefFor("/", locale)}
           translate="no"
-          className="flex items-center gap-2.5 font-bold leading-tight text-foreground"
+          className="flex min-w-0 flex-1 items-center gap-2.5 font-bold leading-tight text-foreground xl:flex-none"
         >
-          <span className="max-w-32 text-base sm:max-w-40 sm:text-lg">
+          <span className="text-sm min-[400px]:text-base sm:text-lg">
             {name}
           </span>
         </Link>
 
         {/* Phone and tablet: the language button sits left of the menu button */}
         <div className="flex shrink-0 items-center gap-2 xl:hidden">
+          {/* Phone: social icons sit just before the language button */}
+          <SocialLinks locale={locale} compact />
           {showSwitch && (
             <Link
               href={switchHref}
@@ -292,8 +294,6 @@ export default function Navbar({
             {nav.donate}
           </Link>
 
-          {/* Phone: social icons sit at the bottom of the opened menu */}
-          <SocialLinks locale={locale} className="px-3 xl:hidden" />
         </div>
       </nav>
     </header>
