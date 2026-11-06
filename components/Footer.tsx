@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { links } from "@/app/lib/link";
 import ContactInfo from "@/components/ContactInfo";
+import SocialLinks from "@/components/SocialLinks";
 import { hrefFor, type Locale } from "@/app/lib/i18n/locale";
 import type { Dictionary } from "@/app/lib/i18n/en";
 
@@ -87,6 +88,9 @@ export default function Footer({
             >
               {dict.common.getInTouch}
             </Link>
+
+            {/* Social icons: hidden until links are added in app/lib/socials.ts */}
+            <SocialLinks locale={locale} className="mt-4" />
           </div>
         </div>
 

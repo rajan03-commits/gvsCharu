@@ -1,11 +1,12 @@
+// FILE PATH: components/Navbar.tsx
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { links } from "@/app/lib/link";
+import SocialLinks from "@/components/SocialLinks";
 import { annualReports, board } from "@/app/lib/projects";
 import {
   hrefFor,
@@ -107,21 +108,13 @@ export default function Navbar({
     >
       <nav
         aria-label={a11y.mainMenu}
-        className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4"
+        className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4 xl:gap-y-2"
       >
         <Link
           href={hrefFor("/", locale)}
           translate="no"
           className="flex items-center gap-2.5 font-bold leading-tight text-foreground"
         >
-          {/* The NGO's own logo. The name beside it is the readable text. */}
-          <Image
-            src="/logo.png"
-            alt=""
-            width={44}
-            height={44}
-            className="h-11 w-11 shrink-0"
-          />
           <span className="max-w-32 text-base sm:max-w-40 sm:text-lg">
             {name}
           </span>
@@ -152,8 +145,13 @@ export default function Navbar({
           </button>
         </div>
 
+        {/* Desktop: social icons sit at the top level, level with the name */}
+        <div className="hidden xl:block">
+          <SocialLinks locale={locale} />
+        </div>
+
         <div
-          className={`${isOpen ? "flex" : "hidden"} w-full flex-col gap-1 xl:flex xl:w-auto xl:flex-row xl:items-center xl:gap-x-2`}
+          className={`${isOpen ? "flex" : "hidden"} w-full flex-col gap-1 xl:flex xl:w-full xl:flex-row xl:items-center xl:gap-x-2 xl:border-t xl:border-border xl:pt-3`}
         >
           {links.map((link) => {
             if (link.key === "about") {
@@ -280,7 +278,7 @@ export default function Navbar({
               hrefLang={otherLocale}
               lang={otherLocale}
               aria-label={a11y.language}
-              className="hidden whitespace-nowrap rounded-md px-3 py-2 font-semibold text-primary transition-colors hover:text-primary-hover xl:inline-block"
+              className="hidden whitespace-nowrap rounded-md px-3 py-2 font-semibold text-primary transition-colors hover:text-primary-hover xl:ml-auto xl:inline-block"
             >
               {switchLabel}
             </Link>
@@ -289,10 +287,13 @@ export default function Navbar({
           <Link
             href={hrefFor("/donate", locale)}
             onClick={closeAll}
-            className="whitespace-nowrap rounded-md bg-primary px-5 py-3 text-center font-semibold text-white transition-colors hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className={`whitespace-nowrap rounded-md bg-primary px-5 py-3 text-center font-semibold text-white transition-colors hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${showSwitch ? "" : "xl:ml-auto"}`}
           >
             {nav.donate}
           </Link>
+
+          {/* Phone: social icons sit at the bottom of the opened menu */}
+          <SocialLinks locale={locale} className="px-3 xl:hidden" />
         </div>
       </nav>
     </header>

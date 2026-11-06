@@ -3,6 +3,7 @@ import ContactForm from "@/components/ContactForm";
 import ContactInfo from "@/components/ContactInfo";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
+import SocialLinks from "@/components/SocialLinks";
 import { hi } from "@/app/lib/i18n/hi";
 import { formLabelsHi } from "@/app/lib/i18n/forms";
 import { addressHi, contactPageHi } from "@/app/lib/hi/contact";
@@ -60,6 +61,9 @@ export default function HindiContactPage() {
                 {contactPageHi.adoptionHoursValue}
               </li>
             </ul>
+
+            {/* Social icons: hidden until links are added in app/lib/socials.ts */}
+            <SocialLinks locale="hi" className="mt-6" />
           </div>
         </div>
       </Section>

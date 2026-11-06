@@ -1,3 +1,4 @@
+// FILE PATH: app/hi/about/projects/[slug]/page.tsx
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -52,16 +53,33 @@ export default async function HindiProjectPage({ params }: Props) {
       <Section>
         <div className="grid gap-10 lg:grid-cols-[3fr_2fr]">
           <div>
-            <span
-              aria-hidden="true"
-              className="flex h-14 w-14 items-center justify-center rounded-full bg-surface text-primary"
-            >
-              <Icon size={28} />
-            </span>
-            <p className="mt-6 text-sm font-semibold text-primary">
-              {text.kind}
-            </p>
-            <h2 className="mt-1 text-2xl font-bold text-foreground md:text-3xl">
+            <div className="flex items-center gap-4">
+            {project.logo ? (
+              <Image
+                src={project.logo}
+                alt=""
+                width={80}
+                height={80}
+                className="h-20 w-20 shrink-0"
+              />
+            ) : (
+              <span
+                aria-hidden="true"
+                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-surface text-primary"
+              >
+                <Icon size={28} />
+              </span>
+            )}
+            <div>
+              <p className="text-sm font-semibold text-primary">
+                {text.kind}
+              </p>
+              <p className="text-xl font-bold text-foreground">
+                {text.name}
+              </p>
+            </div>
+            </div>
+            <h2 className="mt-8 text-2xl font-bold text-foreground md:text-3xl">
               {t.whatWeDo}
             </h2>
             <p className="mt-4 text-lg text-foreground">{details.text}</p>
@@ -72,6 +90,16 @@ export default async function HindiProjectPage({ params }: Props) {
               {t.atAGlance}
             </h2>
             <dl className="mt-4 space-y-4">
+              <div>
+                <dt className="text-sm text-foreground">
+                  {project.countKind === "students"
+                    ? t.studentsCount
+                    : t.childrenCount}
+                </dt>
+                <dd className="font-semibold text-foreground">
+                  {project.count}
+                </dd>
+              </div>
               {details.facts.map((fact) => (
                 <div key={fact.label}>
                   <dt className="text-sm text-foreground">{fact.label}</dt>
@@ -85,9 +113,25 @@ export default async function HindiProjectPage({ params }: Props) {
         </div>
       </Section>
 
+      {/* Staff: names and roles only */}
+      <Section tone="surface">
+        <h2 className="text-2xl font-bold text-foreground">{t.staffHeading}</h2>
+        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {details.staff.map((person, personIndex) => (
+            <li
+              key={`${person.name}-${personIndex}`}
+              className="rounded-lg border border-border bg-background p-5"
+            >
+              <p className="font-semibold text-foreground">{person.name}</p>
+              <p className="text-sm text-foreground">{person.role}</p>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
       {/* Photos of the unit: shown only when there are some */}
       {hasPhotos && (
-        <Section tone="surface">
+        <Section>
           <h2 className="text-2xl font-bold text-foreground">{t.photos}</h2>
           <ul className="mt-6 grid gap-6 sm:grid-cols-2">
             {project.photos.map((photo, photoIndex) => (
@@ -106,20 +150,6 @@ export default async function HindiProjectPage({ params }: Props) {
           </ul>
         </Section>
       )}
-
-      <Section tone={hasPhotos ? "plain" : "surface"}>
-        <h2 className="text-2xl font-bold text-foreground">{t.certsHeading}</h2>
-        <p className="mt-4 max-w-3xl text-foreground">
-          {t.certsBefore}
-          <Link
-            href={hrefFor("/about#certificates", "hi")}
-            className="font-semibold text-primary underline"
-          >
-            {t.certsLink}
-          </Link>
-          {t.certsAfter}
-        </p>
-      </Section>
 
       <Section tone={hasPhotos ? "surface" : "plain"}>
         <nav

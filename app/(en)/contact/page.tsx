@@ -3,6 +3,7 @@ import ContactForm from "@/components/ContactForm";
 import ContactInfo from "@/components/ContactInfo";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
+import SocialLinks from "@/components/SocialLinks";
 import { contact } from "@/app/lib/contact";
 
 export const metadata: Metadata = {
@@ -47,6 +48,9 @@ export default function ContactPage() {
                 {contact.adoptionHours}
               </li>
             </ul>
+
+            {/* Social icons: hidden until links are added in app/lib/socials.ts */}
+            <SocialLinks locale="en" className="mt-6" />
           </div>
         </div>
       </Section>

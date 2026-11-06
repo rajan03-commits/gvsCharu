@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import ButtonLink from "@/components/ButtonLink";
 import DonateBanner from "@/components/DonateBanner";
 import HeroSlider from "@/components/HeroSlider";
+import { LatestUpdates, Reviews, VideoLinks } from "@/components/HomeFeeds";
 import MissionVision from "@/components/MissionVision";
 import PhotoSlot from "@/components/PhotoSlot";
 import PromiseBanner from "@/components/PromiseBanner";
@@ -121,7 +122,7 @@ export default function HindiHome() {
         <h2 className="text-2xl font-bold text-foreground md:text-3xl">
           {hi.home.ourImpact}
         </h2>
-        <ul className="mt-8 grid gap-6 sm:grid-cols-3">
+        <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {impactHi.map((item) => (
             <li
               key={item.label}
@@ -161,6 +162,10 @@ export default function HindiHome() {
         </div>
       </Section>
 
+      {/* Each of these stays hidden until it has content (app/lib/homeFeeds.ts) */}
+      <LatestUpdates locale="hi" />
+      <VideoLinks locale="hi" />
+
       <Section tone="surface">
         <div className="max-w-3xl">
           <h2 className="text-2xl font-bold text-foreground md:text-3xl">
@@ -177,6 +182,8 @@ export default function HindiHome() {
           </Link>
         </div>
       </Section>
+
+      <Reviews locale="hi" />
 
       <DonateBanner
         title={hi.donateBanner.title}

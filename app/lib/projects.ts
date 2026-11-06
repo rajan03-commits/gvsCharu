@@ -1,3 +1,4 @@
+// FILE PATH: app/lib/projects.ts  (English data. Not the hi folder.)
 import {
   Baby,
   Compass,
@@ -20,6 +21,14 @@ export type Project = {
   // Facility photos only, no identifiable children. Files are in public/images/projects.
   photos: ProjectPhoto[];
   icon: LucideIcon;
+  // The NGO's logo for this unit. Leave it out for units with no logo yet.
+  logo?: string;
+  // "children" for the homes, "students" for the NIOS centres
+  countKind: "children" | "students";
+  // Current number. A placeholder until the NGO sends it.
+  count: string;
+  // Staff: names and roles only. No photos without written consent.
+  staff: { name: string; role: string }[];
 };
 
 // Anything in [square brackets] is a placeholder the NGO still has to fill.
@@ -48,6 +57,13 @@ export const projects: Project[] = [
       },
     ],
     icon: HeartHandshake,
+    logo: "/logo.png",
+    countKind: "children",
+    count: "[number]",
+    staff: [
+      { name: "[Staff name]", role: "[Role]" },
+      { name: "[Staff name]", role: "[Role]" },
+    ],
   },
   {
     slug: "cci-infants",
@@ -67,6 +83,13 @@ export const projects: Project[] = [
       },
     ],
     icon: Baby,
+    logo: "/logo.png",
+    countKind: "children",
+    count: "[number]",
+    staff: [
+      { name: "[Staff name]", role: "[Role]" },
+      { name: "[Staff name]", role: "[Role]" },
+    ],
   },
   {
     slug: "cci-girls",
@@ -85,6 +108,13 @@ export const projects: Project[] = [
     // Add them here once the NGO says which dormitory is the girls' home.
     photos: [],
     icon: Sparkles,
+    logo: "/logo.png",
+    countKind: "children",
+    count: "[number]",
+    staff: [
+      { name: "[Staff name]", role: "[Role]" },
+      { name: "[Staff name]", role: "[Role]" },
+    ],
   },
   {
     slug: "cci-boys",
@@ -101,6 +131,13 @@ export const projects: Project[] = [
     ],
     photos: [],
     icon: Compass,
+    logo: "/logo.png",
+    countKind: "children",
+    count: "[number]",
+    staff: [
+      { name: "[Staff name]", role: "[Role]" },
+      { name: "[Staff name]", role: "[Role]" },
+    ],
   },
   {
     slug: "nios-obe",
@@ -111,6 +148,12 @@ export const projects: Project[] = [
     facts: [{ label: "Who it serves", value: "[From the NGO]" }],
     photos: [],
     icon: GraduationCap,
+    countKind: "students",
+    count: "[number]",
+    staff: [
+      { name: "[Staff name]", role: "[Role]" },
+      { name: "[Staff name]", role: "[Role]" },
+    ],
   },
   {
     slug: "nios-vocational",
@@ -130,6 +173,12 @@ export const projects: Project[] = [
       },
     ],
     icon: Hammer,
+    countKind: "students",
+    count: "[number]",
+    staff: [
+      { name: "[Staff name]", role: "[Role]" },
+      { name: "[Staff name]", role: "[Role]" },
+    ],
   },
 ];
 

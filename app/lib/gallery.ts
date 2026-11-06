@@ -75,21 +75,21 @@ export const galleryPhotos: GalleryPhoto[] = [
   },
   {
     src: "/images/gallery/dining-hall-1.jpg",
-    alt: "A dining hall with long tables and black chairs.",
-    caption: "Dining hall",
-    category: "Dining",
+    alt: "A hall with long tables and black chairs.",
+    caption: "Vocational training centre",
+    category: "Vocational training centre",
   },
   {
     src: "/images/gallery/dining-hall-2.jpg",
     alt: "A long dining table with orange chairs under a metal roof.",
-    caption: "Dining hall",
-    category: "Dining",
+    caption: "Vocational training centre",
+    category: "Vocational training centre",
   },
   {
     src: "/images/gallery/dining-hall-3.jpg",
     alt: "Orange chairs along a long dining table.",
-    caption: "Dining hall",
-    category: "Dining",
+    caption: "Vocational training centre",
+    category: "Vocational training centre",
   },
 ];
 

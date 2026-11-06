@@ -1,3 +1,4 @@
+// FILE PATH: app/(en)/about/projects/page.tsx
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -46,12 +47,23 @@ export default function ProjectsPage() {
                         />
                       </span>
                     )}
-                    <span
-                      aria-hidden="true"
-                      className="flex h-12 w-12 items-center justify-center rounded-full bg-surface text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white"
-                    >
-                      <Icon size={24} />
-                    </span>
+                    <span className="flex items-start gap-4">
+                    {project.logo ? (
+                      <Image
+                        src={project.logo}
+                        alt=""
+                        width={56}
+                        height={56}
+                        className="h-14 w-14 shrink-0"
+                      />
+                    ) : (
+                      <span
+                        aria-hidden="true"
+                        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-surface text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white"
+                      >
+                        <Icon size={24} />
+                      </span>
+                    )}
                     <span>
                       <span className="block text-sm font-semibold text-primary">
                         {project.kind}
@@ -62,6 +74,7 @@ export default function ProjectsPage() {
                       <span className="mt-2 block text-foreground">
                         {project.summary}
                       </span>
+                    </span>
                     </span>
                     <span className="mt-auto font-semibold text-primary">
                       Learn more

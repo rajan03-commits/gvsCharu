@@ -59,19 +59,19 @@ const hindi: Record<string, { alt: string; caption: string; category: string }> 
     category: "शिक्षा और कौशल",
   },
   "/images/gallery/dining-hall-1.jpg": {
-    alt: "लंबी मेज़ों और काली कुर्सियों वाला भोजन कक्ष।",
-    caption: "भोजन कक्ष",
-    category: "भोजन कक्ष",
+    alt: "लंबी मेज़ों और काली कुर्सियों वाला हॉल।",
+    caption: "व्यावसायिक प्रशिक्षण केंद्र",
+    category: "व्यावसायिक प्रशिक्षण केंद्र",
   },
   "/images/gallery/dining-hall-2.jpg": {
     alt: "धातु की छत के नीचे नारंगी कुर्सियों वाली लंबी भोजन मेज़।",
-    caption: "भोजन कक्ष",
-    category: "भोजन कक्ष",
+    caption: "व्यावसायिक प्रशिक्षण केंद्र",
+    category: "व्यावसायिक प्रशिक्षण केंद्र",
   },
   "/images/gallery/dining-hall-3.jpg": {
     alt: "लंबी भोजन मेज़ के साथ लगी नारंगी कुर्सियाँ।",
-    caption: "भोजन कक्ष",
-    category: "भोजन कक्ष",
+    caption: "व्यावसायिक प्रशिक्षण केंद्र",
+    category: "व्यावसायिक प्रशिक्षण केंद्र",
   },
 };
 

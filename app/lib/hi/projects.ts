@@ -1,3 +1,4 @@
+// FILE PATH: app/lib/hi/projects.ts  (Hindi text. Inside the hi folder.)
 // Hindi text for the project pages. The names, kinds and one-line summaries are in
 // app/lib/hi/about.ts (projectsHi). The unit names are the NGO-approved ones.
 // The paragraphs below use the approved terms, but the full sentences are a DRAFT
@@ -17,6 +18,9 @@ export const projectsPageHi = {
   certsAfter: " पर दिखाए गए हैं।",
   otherProjects: "अन्य परियोजनाएँ",
   question: "इस इकाई के बारे में कोई प्रश्न है?",
+  childrenCount: "वर्तमान में संस्था में रह रहे बच्चे",
+  studentsCount: "वर्तमान में नामांकित विद्यार्थी",
+  staffHeading: "हमारे सहयोगी",
 };
 
 // Keyed by the slug in app/lib/projects.ts. The photos are in the same order as in that file.
@@ -26,6 +30,7 @@ export const projectDetailsHi: Record<
     text: string;
     facts: { label: string; value: string }[];
     photoAlts: string[];
+    staff: { name: string; role: string }[];
   }
 > = {
   saa: {
@@ -40,6 +45,10 @@ export const projectDetailsHi: Record<
       "शिशु कक्ष: पालने, खाटें और दीवार पर खिलौने",
       "शिशु कक्ष: दीवार पर छोटे बच्चों के लिए साप्ताहिक भोजन तालिका",
     ],
+    staff: [
+      { name: "[नाम]", role: "[पद]" },
+      { name: "[नाम]", role: "[पद]" },
+    ],
   },
   "cci-infants": {
     text: "[संस्था से दो-तीन वाक्य।]",
@@ -47,6 +56,10 @@ export const projectDetailsHi: Record<
     photoAlts: [
       "पालनों और खाटों वाला उजला शिशु कक्ष",
       "शिशु कक्ष का दूसरा दृश्य: रेफ्रिजरेटर और भंडार कक्ष के साथ",
+    ],
+    staff: [
+      { name: "[नाम]", role: "[पद]" },
+      { name: "[नाम]", role: "[पद]" },
     ],
   },
   "cci-girls": {
@@ -58,6 +71,10 @@ export const projectDetailsHi: Record<
       },
     ],
     photoAlts: [],
+    staff: [
+      { name: "[नाम]", role: "[पद]" },
+      { name: "[नाम]", role: "[पद]" },
+    ],
   },
   "cci-boys": {
     text: "हमारी बालक आवासीय देखरेख इकाई बच्चों को एक सुरक्षित, संरचित और सहयोगी वातावरण देने का प्रयास करती है, जिसमें वे कठिन परिस्थितियों से उबर सकें और अपनी क्षमताएँ विकसित कर सकें। हमारा दृष्टिकोण शिक्षा, स्वास्थ्य सेवा, पोषण, मनोरंजक गतिविधियों, भावनात्मक सहयोग, सकारात्मक संबंधों और आयु-उपयुक्त जीवन कौशल पर बल देता है। व्यक्तिगत देखरेख योजना और निरंतर मार्गदर्शन के माध्यम से हम हर बच्चे को आत्मविश्वास पाने, स्वस्थ आदतें विकसित करने, अपनी शक्तियाँ पहचानने और परिवार तथा समुदाय में सफल पुनःएकीकरण के लिए तैयार होने में सहयोग देते हैं।",
@@ -68,11 +85,19 @@ export const projectDetailsHi: Record<
       },
     ],
     photoAlts: [],
+    staff: [
+      { name: "[नाम]", role: "[पद]" },
+      { name: "[नाम]", role: "[पद]" },
+    ],
   },
   "nios-obe": {
     text: "[संस्था से दो-तीन वाक्य।]",
     facts: [{ label: "यह किनके लिए है", value: "[संस्था से]" }],
     photoAlts: [],
+    staff: [
+      { name: "[नाम]", role: "[पद]" },
+      { name: "[नाम]", role: "[पद]" },
+    ],
   },
   "nios-vocational": {
     text: "[संस्था से दो-तीन वाक्य।]",
@@ -80,6 +105,10 @@ export const projectDetailsHi: Record<
     photoAlts: [
       "व्यावसायिक प्रशिक्षण कक्ष: मेज़ों पर रखी हस्तनिर्मित वस्तुएँ",
       "व्यावसायिक प्रशिक्षण कक्ष का दूसरी ओर से दृश्य",
+    ],
+    staff: [
+      { name: "[नाम]", role: "[पद]" },
+      { name: "[नाम]", role: "[पद]" },
     ],
   },
 };
