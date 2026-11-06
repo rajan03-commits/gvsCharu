@@ -1,3 +1,4 @@
+// FILE PATH: app/lib/i18n/en.ts  (replaces the old file)
 // Every small UI word that is typed into a component lives here.
 // hi.ts must have exactly the same keys, and TypeScript will complain if one is missing.
 export const en = {
@@ -7,6 +8,7 @@ export const en = {
     adoption: "Adoption Procedure",
     gallery: "Photo Gallery",
     stories: "Success Stories",
+    events: "Notices & Events",
     contact: "Contact Us",
     donate: "Donate Now",
     // About Us dropdown

@@ -1,7 +1,9 @@
+// FILE PATH: app/lib/i18n/hi.ts  (replaces the old file)
 import type { Dictionary } from "./en";
 
 // Hindi wording. The menu words below follow the NGO's approved list (Part 1, revised).
 // "दत्तक ग्रहण" is the official CARA term.
+// "सूचना एवं कार्यक्रम" (Notices & Events) is a draft: the NGO must approve it.
 export const hi: Dictionary = {
   nav: {
     home: "होम",
@@ -9,6 +11,7 @@ export const hi: Dictionary = {
     adoption: "दत्तक ग्रहण प्रक्रिया",
     gallery: "फोटो गैलरी",
     stories: "सफलता की कहानियाँ",
+    events: "सूचना एवं कार्यक्रम",
     contact: "संपर्क करें",
     donate: "अभी दान करें",
     // About Us dropdown

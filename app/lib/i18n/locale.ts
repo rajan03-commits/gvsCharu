@@ -1,3 +1,4 @@
+// FILE PATH: app/lib/i18n/locale.ts  (replaces the old file)
 export type Locale = "en" | "hi";
 
 // English paths that have a finished Hindi page.
@@ -17,6 +18,7 @@ export const hindiPages: string[] = [
   "/adoption",
   "/contact",
   "/donate",
+  "/events",
   "/gallery",
   "/stories",
 ];
