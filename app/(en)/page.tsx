@@ -1,3 +1,4 @@
+// FILE PATH: app/(en)/page.tsx  (replaces the old file)
 import Link from "next/link";
 import ButtonLink from "@/components/ButtonLink";
 import DonateBanner from "@/components/DonateBanner";
@@ -14,12 +15,17 @@ import { aboutImages } from "@/app/lib/aboutVisuals";
 import { adoptionSteps } from "@/app/lib/adoption";
 import { aboutStory, ourPromise } from "@/app/lib/about";
 import { imageDisclaimer } from "@/app/lib/site";
+import NoticeBar from "@/components/NoticeBar";
+import { LatestUpdates, Reviews, VideoLinks } from "@/components/HomeFeeds";
 
 export default function Home() {
   const aboutPhoto = homeImages.about;
 
   return (
     <>
+      {/* The court-update line: hidden when app/lib/homeFeeds.ts has no items */}
+      <NoticeBar locale="en" />
+
       {/* Hero: two slides, text on the left and a photo on the right */}
       <Section>
         <HeroSlider slides={heroSlides} note={imageDisclaimer} />
@@ -74,7 +80,7 @@ export default function Home() {
         <h2 className="text-2xl font-bold text-foreground md:text-3xl">
           Our Impact
         </h2>
-        <ul className="mt-8 grid gap-6 sm:grid-cols-3">
+        <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {impact.map((item) => (
             <li
               key={item.label}
@@ -117,6 +123,10 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Each of these stays hidden until it has content (app/lib/homeFeeds.ts) */}
+      <LatestUpdates locale="en" />
+      <VideoLinks locale="en" />
+
       {/* Success stories teaser */}
       <Section tone="surface">
         <div className="max-w-3xl">
@@ -135,6 +145,9 @@ export default function Home() {
           </Link>
         </div>
       </Section>
+
+      {/* Public reviews from regular visitors */}
+      <Reviews locale="en" />
 
       <DonateBanner />
     </>

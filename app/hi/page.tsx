@@ -1,3 +1,4 @@
+// FILE PATH: app/hi/page.tsx  (replaces the old file)
 import Link from "next/link";
 import type { Metadata } from "next";
 import ButtonLink from "@/components/ButtonLink";
@@ -5,6 +6,7 @@ import DonateBanner from "@/components/DonateBanner";
 import HeroSlider from "@/components/HeroSlider";
 import { LatestUpdates, Reviews, VideoLinks } from "@/components/HomeFeeds";
 import MissionVision from "@/components/MissionVision";
+import NoticeBar from "@/components/NoticeBar";
 import PhotoSlot from "@/components/PhotoSlot";
 import PromiseBanner from "@/components/PromiseBanner";
 import Reveal from "@/components/Reveal";
@@ -60,6 +62,9 @@ export default function HindiHome() {
 
   return (
     <>
+      {/* The court-update line: hidden when app/lib/homeFeeds.ts has no items */}
+      <NoticeBar locale="hi" />
+
       <Section>
         <HeroSlider
           slides={slides}

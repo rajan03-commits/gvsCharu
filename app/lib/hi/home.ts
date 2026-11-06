@@ -39,10 +39,11 @@ export const visionShortHi =
 // DRAFT Hindi wording for the NGO's numbers: they must confirm it.
 // DRAFT Hindi wording for the NGO's numbers: they must confirm it.
 export const impactHi = [
-  { value: "600+", label: "अब तक पालन-पोषण पाने वाले बच्चे" },
-  { value: "12", label: "विदेश में दत्तक ग्रहण किए गए बच्चे" },
-  { value: "66", label: "वर्तमान में हमारी देखरेख में बच्चे" },
-];
+  { value: "1057+", label: "अब तक पोषित बच्चे" },
+  { value: "11+", label: "हमारे SAA से अंतर-देशीय दत्तक ग्रहण" },
+  { value: "140+", label: "हमारे SAA से देश में दत्तक ग्रहण" },
+  { value: "64", label: "वर्तमान में संस्था में रह रहे बच्चे" },
+  ];
 // Item 11, NGO wording. Same order as adoptionSteps in app/lib/adoption.ts.
 // These differ from the English step titles: see the question below.
 export const adoptionStepTitlesHi = [
