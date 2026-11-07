@@ -1,3 +1,4 @@
+
 export const siteName = "Gramin Vikas Samiti Charu";
 
 // Hindi name: the NGO confirmed the spelling चारू (item 1 and the client).
@@ -16,8 +17,9 @@ export const allowIndexing = false;
 // While false, the live site hides the language switch and blocks /hi.
 export const hindiApproved = true;
 
+// English wording requested by the NGO.
 export const imageDisclaimer =
-  "Pictures on this website are for representation only and do not show the children in our care.";
+  "Images are illustrative only and do not identify any children under our care.";
 
 // Hindi wording supplied by the NGO (item 5).
 export const imageDisclaimerHi =
