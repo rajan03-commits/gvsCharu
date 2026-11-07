@@ -1,4 +1,4 @@
-// FILE PATH: app/hi/page.tsx  (replaces the old file)
+
 import Link from "next/link";
 import type { Metadata } from "next";
 import ButtonLink from "@/components/ButtonLink";
@@ -7,6 +7,9 @@ import HeroSlider from "@/components/HeroSlider";
 import { LatestUpdates, Reviews, VideoLinks } from "@/components/HomeFeeds";
 import MissionVision from "@/components/MissionVision";
 import NoticeBar from "@/components/NoticeBar";
+import CountUp from "@/components/CountUp";
+import PhotoStrip from "@/components/PhotoStrip";
+import WaveDivider from "@/components/WaveDivider";
 import PhotoSlot from "@/components/PhotoSlot";
 import PromiseBanner from "@/components/PromiseBanner";
 import Reveal from "@/components/Reveal";
@@ -73,6 +76,8 @@ export default function HindiHome() {
         />
       </Section>
 
+      <WaveDivider from="plain" to="surface" />
+
       <Section tone="surface">
         <div
           className={
@@ -111,6 +116,10 @@ export default function HindiHome() {
         </div>
       </Section>
 
+      <WaveDivider from="surface" to="plain" />
+      {/* A slow row of facility photos: rooms and spaces only */}
+      <PhotoStrip locale="hi" />
+
       <PromiseBanner
         text={ourPromiseHi}
         image={aboutImages.promise}
@@ -133,12 +142,16 @@ export default function HindiHome() {
               key={item.label}
               className="rounded-lg bg-background p-6 text-center"
             >
-              <p className="text-4xl font-bold text-primary">{item.value}</p>
+              <p className="text-4xl font-bold tabular-nums text-primary">
+                <CountUp value={item.value} />
+              </p>
               <p className="mt-2 text-foreground">{item.label}</p>
             </li>
           ))}
         </ul>
       </Section>
+
+      <WaveDivider from="surface" to="plain" />
 
       <Section>
         <h2 className="text-2xl font-bold text-foreground md:text-3xl">

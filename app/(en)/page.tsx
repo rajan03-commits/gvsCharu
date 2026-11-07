@@ -1,4 +1,4 @@
-// FILE PATH: app/(en)/page.tsx  (replaces the old file)
+
 import Link from "next/link";
 import ButtonLink from "@/components/ButtonLink";
 import DonateBanner from "@/components/DonateBanner";
@@ -16,6 +16,9 @@ import { adoptionSteps } from "@/app/lib/adoption";
 import { aboutStory, ourPromise } from "@/app/lib/about";
 import { imageDisclaimer } from "@/app/lib/site";
 import NoticeBar from "@/components/NoticeBar";
+import CountUp from "@/components/CountUp";
+import PhotoStrip from "@/components/PhotoStrip";
+import WaveDivider from "@/components/WaveDivider";
 import { LatestUpdates, Reviews, VideoLinks } from "@/components/HomeFeeds";
 
 export default function Home() {
@@ -30,6 +33,8 @@ export default function Home() {
       <Section>
         <HeroSlider slides={heroSlides} note={imageDisclaimer} />
       </Section>
+
+      <WaveDivider from="plain" to="surface" />
 
       {/* Short about: text with a photo beside it once the photo exists */}
       <Section tone="surface">
@@ -70,6 +75,10 @@ export default function Home() {
         </div>
       </Section>
 
+      <WaveDivider from="surface" to="plain" />
+      {/* A slow row of facility photos: rooms and spaces only */}
+      <PhotoStrip locale="en" />
+
       {/* Our promise: green band, photo behind it from the About page */}
       <PromiseBanner text={ourPromise} image={aboutImages.promise} />
 
@@ -86,12 +95,16 @@ export default function Home() {
               key={item.label}
               className="rounded-lg bg-background p-6 text-center"
             >
-              <p className="text-4xl font-bold text-primary">{item.value}</p>
+              <p className="text-4xl font-bold tabular-nums text-primary">
+                <CountUp value={item.value} />
+              </p>
               <p className="mt-2 text-foreground">{item.label}</p>
             </li>
           ))}
         </ul>
       </Section>
+
+      <WaveDivider from="surface" to="plain" />
 
       {/* How adoption works */}
       <Section>
