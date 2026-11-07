@@ -16,6 +16,7 @@ import { adoptionSteps } from "@/app/lib/adoption";
 import { aboutStory, ourPromise } from "@/app/lib/about";
 import { imageDisclaimer } from "@/app/lib/site";
 import NoticeBar from "@/components/NoticeBar";
+import HelpCards from "@/components/HelpCards";
 import CountUp from "@/components/CountUp";
 import PhotoStrip from "@/components/PhotoStrip";
 import WaveDivider from "@/components/WaveDivider";
@@ -158,6 +159,8 @@ export default function Home() {
           </Link>
         </div>
       </Section>
+
+      <HelpCards locale="en" />
 
       {/* Public reviews from regular visitors */}
       <Reviews locale="en" />

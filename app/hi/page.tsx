@@ -7,6 +7,7 @@ import HeroSlider from "@/components/HeroSlider";
 import { LatestUpdates, Reviews, VideoLinks } from "@/components/HomeFeeds";
 import MissionVision from "@/components/MissionVision";
 import NoticeBar from "@/components/NoticeBar";
+import HelpCards from "@/components/HelpCards";
 import CountUp from "@/components/CountUp";
 import PhotoStrip from "@/components/PhotoStrip";
 import WaveDivider from "@/components/WaveDivider";
@@ -200,6 +201,8 @@ export default function HindiHome() {
           </Link>
         </div>
       </Section>
+
+      <HelpCards locale="hi" />
 
       <Reviews locale="hi" />
 
